@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <defs>
+    <linearGradient id="navMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop class="logo-grad-stop1" offset="0%" stop-color="#ffffff"/>
+      <stop class="logo-grad-stop2" offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <filter id="navGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <style>
+      .logo-text-title {
+        fill: #ffffff;
+      }
+      .logo-text-tagline {
+        fill: rgba(255, 255, 255, 0.78);
+      }
+      .logo-grad-stop1 {
+        stop-color: #ffffff;
+      }
+      .logo-grad-stop2 {
+        stop-color: #e0e7ff;
+      }
+
+      /* Automatic Light Mode Fallback for System / Standalone Previews */
+      @media (prefers-color-scheme: light) {
+        .logo-text-title {
+          fill: #0f172a;
+        }
+        .logo-text-tagline {
+          fill: #475569;
+        }
+        .logo-grad-stop1 {
+          stop-color: #4f46e5;
+        }
+        .logo-grad-stop2 {
+          stop-color: #2563eb;
+        }
+      }
+    </style>
+  </defs>
+  
+  <!-- Monogram Mark -->
+  <g transform="translate(10, 10) scale(0.1923) translate(-480, -460)" filter="url(#navGlow)">
+    <!-- Path A -->
+    <path fill="url(#navMarkGrad)" d="M 817.082031 605.601562 L 772.824219 682.203125 L 749.59375 641.851562 L 741.984375 655.070312 L 605.300781 891.582031 L 572.160156 949.058594 C 568.753906 954.964844 563.847656 959.773438 558.140625 963.078125 C 552.433594 966.382812 545.824219 968.183594 538.914062 968.183594 C 525.195312 968.183594 512.578125 960.875 505.671875 948.957031 C 498.863281 937.140625 498.863281 922.523438 505.671875 910.605469 L 716.25 546.023438 C 723.058594 534.109375 735.773438 526.796875 749.492188 526.796875 C 763.210938 526.796875 775.828125 534.109375 782.636719 546.023438 L 810.175781 593.789062 Z"/>
+    <!-- Path DI -->
+    <path fill="url(#navMarkGrad)" d="M 993.316406 910.808594 L 893.183594 737.378906 L 848.925781 813.980469 L 893.683594 891.582031 L 772.324219 891.582031 L 833.003906 786.441406 L 877.261719 709.839844 L 933.335938 612.8125 C 940.347656 600.695312 940.144531 585.675781 932.9375 573.660156 C 917.714844 548.828125 881.46875 549.226562 866.949219 574.460938 L 833.003906 633.238281 L 788.746094 709.839844 L 683.707031 891.582031 L 660.273438 932.234375 C 657.671875 936.742188 656.769531 941.449219 657.070312 946.054688 C 657.070312 946.453125 657.171875 946.753906 657.171875 947.15625 L 657.171875 947.65625 C 657.269531 948.058594 657.472656 948.957031 657.570312 949.359375 C 657.871094 950.460938 658.875 954.066406 662.179688 959.171875 C 667.984375 965.378906 673.992188 968.183594 680.902344 968.183594 L 768.820312 968.183594 L 959.871094 968.183594 C 973.589844 968.183594 986.207031 960.875 993.015625 948.957031 C 1000.125 937.242188 1000.125 922.625 993.316406 910.808594 Z"/>
+    <!-- Dot of i -->
+    <circle cx="954.8" cy="506" r="38.4" fill="url(#navMarkGrad)"/>
+  </g>
+
+  <!-- Typography -->
+  <text class="logo-text-title" x="132" y="64" font-family="'Manrope', 'Outfit', 'Inter', -apple-system, sans-serif" font-size="52" font-weight="900" letter-spacing="4">ADI</text>
+  <text class="logo-text-tagline" x="135" y="96" font-family="'Manrope', 'Outfit', 'Inter', -apple-system, sans-serif" font-size="14.5" font-weight="700" letter-spacing="3.2">BUILDING YOUR IMAGINATION</text>
+</svg>

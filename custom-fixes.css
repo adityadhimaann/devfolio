@@ -1,0 +1,938 @@
+/* ==========================================================================
+   Custom Fixes & Brand Identity Styles for ADI Portfolio
+   Includes:
+   - Fullscreen animated ADI logo preloader
+   - Natural page layout & dimension stabilization
+   - Sticky header transitions & visibility safeguards
+   ========================================================================== */
+
+/* 1. Global Dimensions and Smooth Scrolling */
+html, body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+}
+
+html.lenis, html.lenis body {
+    /* scroll-behavior: smooth !important; removed to let Lenis handle it */
+}
+
+/* 2. Old Theme Preloader Suppression */
+#pxl-loadding {
+    display: none !important;
+}
+
+/* 3. Demo Toolbars Removal */
+.ct-demo-toolbar,
+.ct-demo-bar {
+    display: none !important;
+}
+
+/* 5. Sticky Header Behavior */
+#pxl-header-elementor .pxl-header-elementor-sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+    transform: translateY(-100%) !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.35s ease !important;
+    pointer-events: none !important;
+    background: rgba(8, 11, 30, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+#pxl-header-elementor .pxl-header-elementor-sticky.is-scrolled {
+    transform: translateY(0%) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* 6. Carousel Resilience */
+.pxl-swiper-container {
+    overflow: hidden !important;
+    width: 100% !important;
+}
+.pxl-swiper-wrapper {
+    display: flex !important;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.pxl-swiper-slide {
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 7. Typography & Layout */
+.pxl-testimonial-carousel .pxl-content {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+    line-height: 1.4 !important;
+    word-break: break-word !important;
+}
+.pxl-wapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 8. ADI Brand Logo in Navbar and Headers */
+.pxl-logo img,
+.pxl-header-branding img,
+.pxl-logo-mobile img {
+    height: 42px !important;
+    width: auto !important;
+    max-width: 240px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)) !important;
+    transition: transform 0.25s ease, filter 0.25s ease !important;
+}
+.pxl-logo a:hover img,
+.pxl-header-branding a:hover img {
+    transform: scale(1.03) !important;
+    filter: drop-shadow(0 2px 14px rgba(99,102,241,0.6)) !important;
+}
+
+/* Light Containers & Off-canvas Drawer Logo Contrast */
+#pxl-hidden-panel-popup .pxl-logo img,
+.pxl-header-branding img,
+.pxl-logo-mobile img {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08)) !important;
+}
+#pxl-hidden-panel-popup .pxl-logo a:hover img,
+.pxl-header-branding a:hover img {
+    transform: scale(1.03) !important;
+    filter: drop-shadow(0 2px 12px rgba(79, 70, 229, 0.25)) !important;
+}
+
+/* ==========================================================================
+   ADI ANIMATED PRELOADER & BRAND LOGO
+   ========================================================================== */
+
+.adi-preloader {
+    position: fixed;
+    inset: 0;
+    background: #030305;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+    user-select: none;
+}
+
+.adi-preloader.fade-out {
+    opacity: 0 !important;
+    transform: scale(1.04) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.adi-preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.adi-preloader .logo-svg {
+    width: clamp(80px, 9vw, 105px);
+    height: auto;
+    overflow: visible;
+    filter: none !important;
+}
+
+/* Stroke line animations ("liningly from starting to last") - Crisp, No Glow */
+.adi-preloader .anim-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Disable glow layers completely */
+.adi-preloader .path-a-glow,
+.adi-preloader .path-di-glow {
+    display: none !important;
+}
+
+.adi-preloader .path-a-core,
+.adi-preloader .path-di-core {
+    fill: #ffffff;
+    fill-opacity: 0;
+    stroke: #ffffff;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: none !important;
+}
+
+.adi-preloader .path-a-core {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+}
+
+.adi-preloader .path-di-core {
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+}
+
+.adi-preloader .path-dot {
+    fill: #ffffff;
+    opacity: 0;
+    transform-origin: 955px 506px;
+    filter: none !important;
+}
+
+/* Keyframe animations */
+.adi-preloader.animate .path-a-core {
+    animation: preloaderCoreA 1.4s cubic-bezier(0.25, 0.9, 0.35, 1) 0.1s forwards,
+               preloaderFillSolid 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+}
+
+.adi-preloader.animate .path-di-core {
+    animation: preloaderCoreDI 1.6s cubic-bezier(0.25, 0.9, 0.35, 1) 0.35s forwards,
+               preloaderFillSolid 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
+}
+
+.adi-preloader.animate .path-dot {
+    animation: preloaderPopDot 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s forwards;
+}
+
+@keyframes preloaderCoreA {
+    0% { stroke-dashoffset: 1200; fill-opacity: 0; }
+    100% { stroke-dashoffset: 0; fill-opacity: 0; }
+}
+
+@keyframes preloaderCoreDI {
+    0% { stroke-dashoffset: 1800; fill-opacity: 0; }
+    100% { stroke-dashoffset: 0; fill-opacity: 0; }
+}
+
+@keyframes preloaderFillSolid {
+    0% { fill-opacity: 0; stroke-width: 7; }
+    50% { fill-opacity: 0.6; stroke-width: 3.5; }
+    100% { fill-opacity: 1; stroke-width: 0; }
+}
+
+@keyframes preloaderPopDot {
+    0% { opacity: 0; transform: scale(0) translateY(-35px); }
+    70% { opacity: 1; transform: scale(1.2) translateY(2px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Tagline - Left to Right White Background Block Wipe Reveal (Canva Style) */
+.adi-preloader .tagline-container {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2px 4px;
+}
+
+.adi-preloader .tagline-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    background: #ffffff;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.adi-preloader.animate .tagline-block {
+    animation: preloaderCanvaBlockWipe 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.75s forwards;
+}
+
+.adi-preloader .tagline {
+    position: relative;
+    z-index: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+    opacity: 0;
+    filter: none !important;
+}
+
+.adi-preloader.animate .tagline {
+    animation: preloaderTextAppear 1.1s linear 0.75s forwards;
+}
+
+@keyframes preloaderCanvaBlockWipe {
+    0% {
+        left: 0%;
+        width: 0%;
+    }
+    45% {
+        left: 0%;
+        width: 100%;
+    }
+    55% {
+        left: 0%;
+        width: 100%;
+    }
+    99% {
+        left: 100%;
+        width: 0%;
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        width: 0%;
+        opacity: 0;
+    }
+}
+
+@keyframes preloaderTextAppear {
+    0%, 45% {
+        opacity: 0;
+    }
+    50%, 100% {
+        opacity: 1;
+    }
+}
+
+/* Progress bar */
+.adi-preloader .status-wrapper {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+}
+
+.adi-preloader.animate .status-wrapper {
+    animation: preloaderFadeIn 0.5s ease 0.2s forwards;
+}
+
+@keyframes preloaderFadeIn {
+    to { opacity: 1; }
+}
+
+.adi-preloader .progress-track {
+    width: 110px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.adi-preloader .progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 99px;
+    box-shadow: none;
+}
+
+.adi-preloader.animate .progress-fill {
+    animation: preloaderFillProgress 2.6s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+}
+
+.adi-preloader.animate .progress-fill {
+    animation: preloaderFillProgress 2.6s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes preloaderFillProgress {
+    0% { width: 0%; }
+    40% { width: 50%; }
+    75% { width: 88%; }
+    100% { width: 100%; }
+}
+
+.adi-preloader .status-label {
+    font-size: 8.5px;
+    font-family: monospace;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+}
+
+.adi-skip-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 28px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.adi-skip-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Header Brand Logo Replacement */
+.adi-header-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none !important;
+}
+
+.adi-header-brand svg {
+    width: 44px;
+    height: 44px;
+    overflow: visible;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.adi-header-brand:hover svg {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
+}
+
+.adi-brand-title {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.adi-brand-tagline {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: #dcf247;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+/* ==========================================================================
+   PERSONAL HERO SECTION CUSTOMIZATION (ADI Portfolio)
+   ========================================================================== */
+
+/* Main Hero Top Card (Replaces girl image with myimage.png) */
+.elementor-element-4075287 {
+    min-height: 480px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+    background: #0d1117 !important;
+}
+
+.elementor-element-4075287 .seonex-e-background,
+.elementor-16 .elementor-element.elementor-element-4075287 .seonex-e-background {
+    background-image: url("./devfolio/myimage.png") !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100% + 400px) !important;
+    opacity: 1 !important;
+}
+
+/* Bottom Row Split: Left Column (Slots 1 & 2) + Right Column (Tall myimg2.png) */
+.elementor-element.elementor-element-d9b7436,
+.elementor-element-d9b7436 {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 15px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+.elementor-element.elementor-element-d7594b4,
+.elementor-element-d7594b4 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+}
+
+/* Bottom Right Tall Card (Replaces woman image with myimg2.png) */
+.elementor-element.elementor-element-8bc2286,
+.elementor-element-8bc2286 {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+    min-height: 460px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+    background: #0d1117 !important;
+    display: block !important;
+}
+
+.elementor-element-8bc2286 .seonex-e-background,
+.elementor-16 .elementor-element.elementor-element-8bc2286 .seonex-e-background {
+    background-image: url("./devfolio/myimg2.png") !important;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100% + 300px) !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   HERO CARDS: SLOT 2 (quality.png) & HAPPY CLIENTS CARD (Sonex Style)
+   ========================================================================== */
+
+/* Top Card in Bottom Left: Happy Clients Card (Restored from Sonex Slot 3 / Yellow Card design) */
+.elementor-element.elementor-element-87fa519,
+.elementor-element-87fa519 {
+    background-color: #DCF247 !important;
+    border-radius: 22px !important;
+    border: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+    flex: 1 1 auto !important;
+    min-height: 200px !important;
+    padding: 24px 22px 20px 24px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+    box-shadow: 0 10px 30px rgba(220, 242, 71, 0.15) !important;
+}
+
+.elementor-element-87fa519:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 16px 36px rgba(220, 242, 71, 0.25) !important;
+}
+
+.elementor-element-87fa519 .elementor-element-8692417 {
+    flex: 1 1 auto !important;
+    z-index: 2 !important;
+}
+
+.elementor-element-87fa519 .pxl-counter .pxl--item-inner {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.elementor-element-87fa519 .pxl-counter .pxl--counter-meta {
+    display: flex !important;
+    align-items: baseline !important;
+    line-height: 1 !important;
+}
+
+.elementor-element-87fa519 .pxl-counter .pxl--counter-value,
+.elementor-element-87fa519 .pxl-counter .pxl--counter-suffix {
+    font-family: 'Space Grotesk', -apple-system, sans-serif !important;
+    font-size: 60px !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.elementor-element-87fa519 .pxl-counter .pxl--item-title {
+    font-family: 'Space Grotesk', -apple-system, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin-top: 8px !important;
+    text-transform: capitalize !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Vertical Avatar Column (Exact Sonex overlapping stack) */
+.elementor-element-87fa519 .elementor-element-dd927fb {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+.elementor-element-87fa519 .pxl-image-single img {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    border: 3px solid #DCF247 !important;
+    object-fit: contain !important; height: auto !important;
+    object-position: center 20% !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
+    transition: transform 0.3s ease !important;
+    display: block !important;
+}
+
+.elementor-element-87fa519 .pxl-image-single:hover img {
+    transform: scale(1.15) !important;
+    z-index: 10 !important;
+}
+
+.elementor-element-87fa519 .elementor-element-60e3a7b > .elementor-widget-container,
+.elementor-element-87fa519 .elementor-element-1c27bb6 > .elementor-widget-container {
+    margin-top: -24px !important;
+}
+
+/* Decorative background spacer rings in the yellow card */
+.elementor-element-87fa519 .elementor-element-24a49a7,
+.elementor-element-87fa519 .elementor-element-1c9379b {
+    position: absolute !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    pointer-events: none !important;
+}
+
+/* Slot 2 Card (quality.png) - Displayed 100% in full with zero cropping, no padding, and no demo background */
+.elementor-16 .elementor-element.elementor-element-46f2013,
+.elementor-16 .elementor-element.elementor-element-46f2013:not(.elementor-motion-effects-element-type-background),
+.elementor-16 .elementor-element.elementor-element-46f2013 > .elementor-motion-effects-container > .elementor-motion-effects-layer,
+.elementor-element.elementor-element-46f2013,
+.elementor-element-46f2013,
+.adi-quality-card {
+    background-image: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    --padding-top: 0px !important;
+    --padding-right: 0px !important;
+    --padding-bottom: 0px !important;
+    --padding-left: 0px !important;
+    --min-height: 0px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    border: none !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.elementor-element-46f2013 > .elementor-motion-effects-container {
+    display: none !important;
+}
+
+.elementor-element.elementor-element-46f2013:hover,
+.elementor-element-46f2013:hover,
+.adi-quality-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 16px 36px rgba(0, 150, 255, 0.25) !important;
+}
+
+.elementor-element-46f2013 .adi-quality-img,
+.elementor-16 .elementor-element.elementor-element-46f2013 .adi-quality-img,
+.adi-quality-card .adi-quality-img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    aspect-ratio: 1551 / 1014 !important;
+    object-fit: contain !important; height: auto !important;
+    border-radius: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    transition: transform 0.5s ease !important;
+}
+
+.elementor-element-46f2013:hover .adi-quality-img,
+.adi-quality-card:hover .adi-quality-img {
+    transform: scale(1.02) !important;
+}
+
+
+/* ==========================================================================
+   HERO HEADLINE GRADIENT & TYPOGRAPHY
+   ========================================================================== */
+.elementor-element-d9b4105 h1.pxl-item--title,
+.pxl-heading--inner h1.pxl-item--title {
+    font-size: clamp(38px, 4.75vw, 68px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.fullstack-solution-wrap {
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+
+.gradient-fullstack {
+    background: linear-gradient(135deg, #00f0ff 0%, #0099ff 35%, #5865f2 70%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-filter: none !important;
+}
+
+/* ==========================================================================
+   NAVBAR DROPDOWN BEHAVIOR & HOVER FIXES
+   ========================================================================== */
+
+/* Disable any mega-menu / dropdown on Home completely */
+.menu-item-110 .sub-menu,
+.menu-item-110 .pxl-mega-menu,
+#menu-item-110 .sub-menu,
+#menu-item-110 .pxl-mega-menu {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Prevent hidden sub-menus from capturing hover/mouse events across the page */
+.pxl-menu-primary .sub-menu,
+.pxl-nav-menu .sub-menu {
+    pointer-events: none !important;
+}
+
+/* Only enable pointer interactions when the parent menu item is actively hovered */
+.pxl-menu-primary li:not(.menu-item-110):hover > .sub-menu,
+.pxl-nav-menu li:not(.menu-item-110):hover > .sub-menu {
+    pointer-events: auto !important;
+}
+
+/* ==========================================================================
+   ABOUT / MISSION SECTION HEADING OPTIMIZATION
+   ========================================================================== */
+.elementor-16 .elementor-element.elementor-element-451b0f8 .pxl-heading .pxl-heading--inner .pxl-item--title {
+    max-width: 1150px !important;
+}
+
+/* ==========================================================================
+   OFF-CANVAS SIDEBAR DRAWER SCROLL & INTERACTION FIXES
+   ========================================================================== */
+#pxl-hidden-panel-popup {
+    pointer-events: auto !important;
+}
+
+#pxl-hidden-panel-popup .pxl-item--conent {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    margin-right: 0 !important;
+    right: 0 !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(0, 0, 0, 0.25) transparent !important;
+}
+
+#pxl-hidden-panel-popup .pxl-item--conent::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+#pxl-hidden-panel-popup .pxl-item--conent::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+#pxl-hidden-panel-popup .pxl-item--conent::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 4px !important;
+}
+
+#pxl-hidden-panel-popup .pxl-item--conent::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.45) !important;
+}
+
+#pxl-hidden-panel-popup .pxl-conent-elementor {
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+}
+
+#pxl-hidden-panel-popup .elementor-11854 .elementor-element.elementor-element-c896c52 {
+    padding-top: 50px !important;
+    padding-bottom: 35px !important;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+
+#pxl-hidden-panel-popup .elementor-11854 .elementor-element.elementor-element-89a64c5 > .elementor-widget-container,
+#pxl-hidden-panel-popup .elementor-11854 .elementor-element.elementor-element-c3a20d7 > .elementor-widget-container,
+#pxl-hidden-panel-popup .elementor-11854 .elementor-element.elementor-element-63efe6c > .elementor-widget-container {
+    padding-top: 32px !important;
+    padding-bottom: 14px !important;
+}
+
+#pxl-hidden-panel-popup .elementor-11854 .elementor-element.elementor-element-f413279 > .elementor-widget-container {
+    padding-bottom: 30px !important;
+}
+
+#pxl-hidden-panel-popup .elementor-11854 .elementor-element.elementor-element-de8a67e > .elementor-widget-container {
+    padding-bottom: 18px !important;
+}
+
+#pxl-hidden-panel-popup .wpcf7-response-output:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* Testimonial Avatar & Badge Enhancements */
+.pxl-testimonial-carousel1 .pxl-image--quest .pxl-image {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    flex-shrink: 0 !important;
+}
+
+.pxl-testimonial-carousel1 .pxl-image--quest .pxl-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    display: block !important;
+}
+
+.pxl-testimonial-carousel1 .pxl-subtitle {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 14px !important;
+    margin-top: 4px !important;
+    font-weight: 500 !important;
+}
+
+
+/* ==========================================================================
+   SERVICES SECTION HEADING & PARALLAX FIX
+   ========================================================================== */
+.elementor-element-35a4068 {
+    overflow: visible !important;
+    max-width: 100% !important;
+}
+
+.elementor-element-35a4068 > .elementor-widget-container {
+    margin-right: 0 !important;
+}
+
+.elementor-element-35a4068 .pxl-text-editor {
+    text-align: left !important;
+    white-space: nowrap !important;
+}
+
+#pxl_text_editor-35a4068-6198 {
+    max-width: 100% !important;
+}
+
+/* ==========================================================================
+   SERVICES ACCORDION IMAGES: FULL-WIDTH STRETCH & PERFECT FIT
+   Fixes unstretched/freezed top & bottom letterboxing on all 5 service points
+   ========================================================================== */
+.elementor-16 .elementor-element.elementor-element-db25147 .pxl-accordion1.style-default .pxl-image,
+.pxl-accordion1.style-default .pxl-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 28px !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+}
+
+.elementor-16 .elementor-element.elementor-element-db25147 .pxl-accordion1.style-default .pxl-image img,
+.pxl-accordion1.style-default .pxl-image img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 310px !important;
+    max-height: 310px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 18px !important;
+    display: block !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.elementor-16 .elementor-element.elementor-element-db25147 .pxl-accordion1.style-default .pxl-image:hover img,
+.pxl-accordion1.style-default .pxl-image:hover img {
+    transform: scale(1.025) !important;
+}
+
+@media (max-width: 767px) {
+    .elementor-16 .elementor-element.elementor-element-db25147 .pxl-accordion1.style-default .pxl-image img,
+    .pxl-accordion1.style-default .pxl-image img {
+        height: 220px !important;
+        max-height: 220px !important;
+    }
+}
+
+/* ==========================================================================
+   Full Video Banner (96ae226) - Seamless 4K Loop Animation
+   ========================================================================== */
+.elementor-element-96ae226 {
+    position: relative !important;
+    overflow: hidden !important;
+    background: #080b1e url("./theme-assets/build_hd.webp") center/cover no-repeat !important;
+}
+
+.elementor-element-96ae226 .elementor-background-video-container {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.elementor-element-96ae226 .elementor-background-video-container video {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* ==========================================================================
+   Tech Stack Carousel (3578597) Styling
+   ========================================================================== */
+.pxl-service-carousel1 .pxl-thumnail {
+    border-radius: 135px !important;
+    overflow: hidden !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+.pxl-service-carousel1 .pxl-item--inner:hover .pxl-thumnail {
+    border-radius: 135px 135px 135px 0 !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+
