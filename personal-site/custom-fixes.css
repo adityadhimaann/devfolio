@@ -890,12 +890,12 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
-   Full Video Banner (96ae226) - Seamless 4K Loop Animation
+   Full Video Banner (96ae226) - Seamless 4K Loop Animation (Pure Black)
    ========================================================================== */
 .elementor-element-96ae226 {
     position: relative !important;
     overflow: hidden !important;
-    background: #080b1e url("./theme-assets/build_hd.webp") center/cover no-repeat !important;
+    background: #000000 url("./theme-assets/build_hd.webp") center/cover no-repeat !important;
 }
 
 .elementor-element-96ae226 .elementor-background-video-container {
@@ -905,6 +905,7 @@ html.lenis, html.lenis body {
     height: 100% !important;
     overflow: hidden !important;
     display: block !important;
+    background-color: #000000 !important;
 }
 
 .elementor-element-96ae226 .elementor-background-video-container video {
@@ -917,6 +918,7 @@ html.lenis, html.lenis body {
     min-width: 100% !important;
     min-height: 100% !important;
     object-fit: cover !important;
+    background-color: #000000 !important;
 }
 
 /* ==========================================================================
