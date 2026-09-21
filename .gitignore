@@ -10,10 +10,11 @@ Thumbs.db
 # Unused large scratch media files
 *.mp4
 !**/build_hd.mp4
+!**/business_office.mp4
 busnesslead.gif
 lorewes.gif
-myimage.png
-myimg2.png
+/myimage.png
+/myimg2.png
 
 # Scratch / test files
 scratch/
