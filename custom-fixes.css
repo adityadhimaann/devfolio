@@ -700,27 +700,82 @@ html.lenis, html.lenis body {
    NAVBAR DROPDOWN BEHAVIOR & HOVER FIXES
    ========================================================================== */
 
-/* Disable any mega-menu / dropdown on Home completely */
-.menu-item-110 .sub-menu,
-.menu-item-110 .pxl-mega-menu,
-#menu-item-110 .sub-menu,
-#menu-item-110 .pxl-mega-menu {
+/* Disable any dummy sub-menus completely so there is zero unwanted hyperlink activity */
+.pxl-menu-primary .sub-menu,
+.pxl-nav-menu .sub-menu,
+.pxl-header-nav .sub-menu,
+.menu-item-has-children .sub-menu,
+.pxl-mega-menu {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* Prevent hidden sub-menus from capturing hover/mouse events across the page */
-.pxl-menu-primary .sub-menu,
-.pxl-nav-menu .sub-menu {
-    pointer-events: none !important;
+/* ==========================================================================
+   NAVBAR DROPDOWN ICON & HYPERLINK ACTIVITY FIX (Eliminates broken square ▯)
+   ========================================================================== */
+.caseicon-angle-arrow-down,
+.pxl-menu-primary .caseicon-angle-arrow-down,
+.pxl-nav-menu .caseicon-angle-arrow-down,
+.pxl-header-nav .caseicon-angle-arrow-down {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 6px !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    top: -1px !important;
+    font-style: normal !important;
+    visibility: visible !important;
+    opacity: 0.85 !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
 }
 
-/* Only enable pointer interactions when the parent menu item is actively hovered */
-.pxl-menu-primary li:not(.menu-item-110):hover > .sub-menu,
-.pxl-nav-menu li:not(.menu-item-110):hover > .sub-menu {
-    pointer-events: auto !important;
+/* Eliminate missing font character \f107 that causes square tofu box */
+.caseicon-angle-arrow-down:before,
+.caseicon-angle-arrow-down:after {
+    content: none !important;
+    display: none !important;
+}
+
+.caseicon-angle-arrow-down svg,
+.dropdown-icon-svg {
+    display: inline-block !important;
+    width: 9px !important;
+    height: 6px !important;
+    stroke: currentColor !important;
+    transition: transform 0.25s ease !important;
+    vertical-align: middle !important;
+}
+
+.pxl-menu-primary li:hover > a .caseicon-angle-arrow-down,
+.pxl-nav-menu li:hover > a .caseicon-angle-arrow-down {
+    opacity: 1 !important;
+}
+
+.pxl-menu-primary li:hover > a .caseicon-angle-arrow-down svg,
+.pxl-nav-menu li:hover > a .caseicon-angle-arrow-down svg,
+.pxl-menu-primary li:hover > a .dropdown-icon-svg,
+.pxl-nav-menu li:hover > a .dropdown-icon-svg {
+    transform: rotate(180deg) !important;
+}
+
+/* Pure CSS fallback chevron caret if SVG is ever missing */
+.caseicon-angle-arrow-down:empty::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-right: 1.5px solid currentColor !important;
+    border-bottom: 1.5px solid currentColor !important;
+    transform: rotate(45deg) !important;
+    margin-bottom: 3px !important;
+}
+
+/* Items with no hyperlink activity */
+.no-link-activity {
+    cursor: pointer !important;
 }
 
 /* ==========================================================================

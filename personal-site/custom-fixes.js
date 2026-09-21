@@ -116,15 +116,26 @@
         }, { passive: false });
     }
 
+    function initNoLinkActivityFix() {
+        document.querySelectorAll('.no-link-activity').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        });
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initPreloader();
             initStickyHeader();
             initOffcanvasScrollFix();
+            initNoLinkActivityFix();
         });
     } else {
         initPreloader();
         initStickyHeader();
         initOffcanvasScrollFix();
+        initNoLinkActivityFix();
     }
 })();
