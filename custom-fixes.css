@@ -1100,3 +1100,109 @@ html.lenis, html.lenis body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
 }
 
+/* ==========================================================================
+   FOOTER CONTACT SECTION & EMAIL OVERFLOW FIX
+   Prevents email (dhimanaditya56@gmail.com) from overflowing screen edge
+   ========================================================================== */
+
+/* 1. Eliminate excessive 130px left padding on Contact Me widgets across all desktop viewports */
+.elementor-2488 .elementor-element.elementor-element-bbc67f7 > .elementor-widget-container,
+.elementor-2488 .elementor-element.elementor-element-05efd09 > .elementor-widget-container,
+.elementor-2488 .elementor-element.elementor-element-2e2fcdf > .elementor-widget-container {
+    padding-left: 15px !important;
+}
+
+@media (max-width: 991px) {
+    .elementor-2488 .elementor-element.elementor-element-bbc67f7 > .elementor-widget-container,
+    .elementor-2488 .elementor-element.elementor-element-05efd09 > .elementor-widget-container,
+    .elementor-2488 .elementor-element.elementor-element-2e2fcdf > .elementor-widget-container {
+        padding-left: 0 !important;
+    }
+}
+
+/* 2. Balanced Column Widths on Desktop so Contact Me has ample breathing room */
+@media (min-width: 1201px) {
+    .elementor-2488 .elementor-element.elementor-element-5277788 {
+        --width: 15% !important;
+        max-width: 15% !important;
+    }
+    .elementor-2488 .elementor-element.elementor-element-61630de {
+        --width: 20% !important;
+        max-width: 20% !important;
+    }
+    .elementor-2488 .elementor-element.elementor-element-c86a3e2 {
+        --width: 16% !important;
+        max-width: 16% !important;
+    }
+    .elementor-2488 .elementor-element.elementor-element-57c58c9 {
+        --width: 21% !important;
+        max-width: 21% !important;
+    }
+    .elementor-2488 .elementor-element.elementor-element-1915f9f {
+        --width: 28% !important;
+        max-width: 28% !important;
+        flex: 1 1 auto !important;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 1201px) {
+    .elementor-2488 .elementor-element.elementor-element-1915f9f {
+        --width: 28% !important;
+        max-width: 28% !important;
+    }
+    .elementor-2488 .elementor-element.elementor-element-57c58c9 {
+        --width: 21% !important;
+        max-width: 21% !important;
+    }
+}
+
+/* 3. Footer Contact item & Icon formatting */
+.elementor-2488 .elementor-element.elementor-element-05efd09 .pxl-list .pxl-list-item,
+.elementor-2488 .elementor-element.elementor-element-2e2fcdf .pxl-list .pxl-list-item {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.elementor-2488 .elementor-element.elementor-element-05efd09 .pxl-list .pxl-list-item .pxl-item--icon,
+.elementor-2488 .elementor-element.elementor-element-2e2fcdf .pxl-list .pxl-list-item .pxl-item--icon {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    flex-shrink: 0 !important;
+    margin-right: 14px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 4. Email & Phone text: Never overflow, fit comfortably */
+.elementor-2488 .elementor-element.elementor-element-2e2fcdf .pxl-list .pxl-content {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: visible !important;
+}
+
+.elementor-2488 .elementor-element.elementor-element-2e2fcdf .pxl-list a.pxl-text,
+.elementor-2488 .elementor-element.elementor-element-05efd09 .pxl-list a.pxl-text {
+    font-size: 15px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    display: inline-block !important;
+    letter-spacing: -0.2px !important;
+}
+
+/* 5. Safe Container Padding & Drawer Text Wrap */
+.elementor-2488 .elementor-element.elementor-element-11261f4 {
+    padding-left: clamp(20px, 3vw, 40px) !important;
+    padding-right: clamp(20px, 3vw, 40px) !important;
+    overflow: visible !important;
+}
+
+.elementor-11854 .elementor-element.elementor-element-d530256 .pxl-list .pxl-text {
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+}
+
+
