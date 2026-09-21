@@ -727,12 +727,34 @@ html.lenis, html.lenis body {
     position: relative !important;
     top: -1px !important;
     font-style: normal !important;
+    font-family: inherit !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
     visibility: visible !important;
     opacity: 0.85 !important;
     transition: opacity 0.25s ease, transform 0.25s ease !important;
 }
 
-/* Eliminate missing font character \f107 that causes square tofu box */
+/* Eliminate missing font characters and pseudo-element tofu squares across ALL menu items */
+[class^="caseicon-"]:before,
+[class*=" caseicon-"]:before,
+[class^="caseicon-"]:after,
+[class*=" caseicon-"]:after,
+.pxl-menu-primary a:before,
+.pxl-menu-primary a:after,
+.pxl-menu-primary a span:before,
+.pxl-menu-primary a span:after,
+.pxl-nav-menu a:before,
+.pxl-nav-menu a:after,
+.pxl-nav-menu a span:before,
+.pxl-nav-menu a span:after,
+.pxl-header-nav a:before,
+.pxl-header-nav a:after,
+.pxl-header-nav a span:before,
+.pxl-header-nav a span:after,
+.pxl-menu-toggle,
+.pxl-menu-toggle:before,
+.pxl-menu-toggle:after,
 .caseicon-angle-arrow-down:before,
 .caseicon-angle-arrow-down:after {
     content: none !important;
@@ -761,9 +783,8 @@ html.lenis, html.lenis body {
     transform: rotate(180deg) !important;
 }
 
-/* Pure CSS fallback chevron caret if SVG is ever missing */
-.caseicon-angle-arrow-down:empty::after {
-    content: "" !important;
+/* Pure CSS fallback chevron caret only if container is completely empty */
+.caseicon-angle-arrow-down:empty {
     display: inline-block !important;
     width: 6px !important;
     height: 6px !important;
@@ -987,3 +1008,95 @@ html.lenis, html.lenis body {
     color: #F59E0B !important;
     font-size: 16px !important;
 }
+
+/* ==========================================================================
+   CONTACT FORM INPUTS & IMAGE VISIBILITY (Light Mode & High Contrast)
+   ========================================================================== */
+#adi-contact-form label {
+    display: block !important;
+    font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1E293B !important;
+    margin-bottom: 8px !important;
+}
+
+#adi-contact-form input[type="text"],
+#adi-contact-form input[type="email"],
+#adi-contact-form input[type="tel"],
+#adi-contact-form textarea {
+    width: 100% !important;
+    padding: 16px 20px !important;
+    background: #F8FAFC !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-radius: 12px !important;
+    color: #0F172A !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+#adi-contact-form input[type="text"]:focus,
+#adi-contact-form input[type="email"]:focus,
+#adi-contact-form input[type="tel"]:focus,
+#adi-contact-form textarea:focus {
+    background: #FFFFFF !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14) !important;
+}
+
+#adi-contact-form input::placeholder,
+#adi-contact-form textarea::placeholder {
+    color: #94A3B8 !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+}
+
+.contact-form-btn-submit {
+    background: #0B1BE6 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    padding: 15px 32px !important;
+    border-radius: 999px !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    letter-spacing: 0.6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    box-shadow: 0 4px 14px rgba(11, 27, 230, 0.35) !important;
+    transition: all 0.25s ease !important;
+}
+
+.contact-form-btn-submit:hover {
+    background: #08139e !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(11, 27, 230, 0.45) !important;
+}
+
+.contact-btn-arrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-radius: 50% !important;
+    color: #FFFFFF !important;
+}
+
+.elementor-11625 .elementor-element.elementor-element-b47fae2 {
+    background-image: url('./theme-assets/myimg2.webp'), url('./theme-assets/myimg2.png') !important;
+    background-position: center 15% !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    border-radius: 20px !important;
+    min-height: 560px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
