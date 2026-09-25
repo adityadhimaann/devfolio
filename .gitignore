@@ -9,9 +9,12 @@ Thumbs.db
 
 # Unused large scratch media files
 *.mp4
+*.mov
 !**/build_hd.mp4
 !**/business_office.mp4
 !**/myvidcon_hd.mp4
+!**/mockups/aihustle-desktop.mp4
+!**/mockups/aihustle-mobile.mp4
 busnesslead.gif
 lorewes.gif
 /myimage.png

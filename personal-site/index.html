@@ -185,26 +185,23 @@
         <nav class="inspira-resizable-nav" id="inspiraResizableNav">
           <!-- Scrollable Project Tabs -->
           <div class="inspira-nav-items-scroller" id="inspiraTabsScroller">
-            <button class="inspira-project-btn active" data-project="fintech" onclick="manualSwitchInspiraProject('fintech')">
-              <span class="tab-indicator"></span><span>FinTech Analytics</span>
+            <button class="inspira-project-btn active" data-project="stockpulse" onclick="manualSwitchInspiraProject('stockpulse')">
+              <span class="tab-indicator"></span><span>StockPulse Pro</span>
             </button>
-            <button class="inspira-project-btn" data-project="b2b" onclick="manualSwitchInspiraProject('b2b')">
-              <span class="tab-indicator"></span><span>B2B Platform</span>
+            <button class="inspira-project-btn" data-project="prompxlab" onclick="manualSwitchInspiraProject('prompxlab')">
+              <span class="tab-indicator"></span><span>PrompxLab AI</span>
             </button>
-            <button class="inspira-project-btn" data-project="sasso" onclick="manualSwitchInspiraProject('sasso')">
-              <span class="tab-indicator"></span><span>Sasso SaaS</span>
+            <button class="inspira-project-btn" data-project="aihustle" onclick="manualSwitchInspiraProject('aihustle')">
+              <span class="tab-indicator"></span><span>AI Hustle Hub</span>
             </button>
-            <button class="inspira-project-btn" data-project="ecommerce" onclick="manualSwitchInspiraProject('ecommerce')">
-              <span class="tab-indicator"></span><span>Headless Shop</span>
+            <button class="inspira-project-btn" data-project="payflow" onclick="manualSwitchInspiraProject('payflow')">
+              <span class="tab-indicator"></span><span>PayFlow &amp; FolioX</span>
             </button>
-            <button class="inspira-project-btn" data-project="portfolio" onclick="manualSwitchInspiraProject('portfolio')">
-              <span class="tab-indicator"></span><span>Cases Hub</span>
+            <button class="inspira-project-btn" data-project="syncride" onclick="manualSwitchInspiraProject('syncride')">
+              <span class="tab-indicator"></span><span>SyncRide Transit</span>
             </button>
-            <button class="inspira-project-btn" data-project="fullstack" onclick="manualSwitchInspiraProject('fullstack')">
-              <span class="tab-indicator"></span><span>Full-Stack Core</span>
-            </button>
-            <button class="inspira-project-btn" data-project="aihub" onclick="manualSwitchInspiraProject('aihub')">
-              <span class="tab-indicator"></span><span>AI Engine</span>
+            <button class="inspira-project-btn" data-project="marketbeat" onclick="manualSwitchInspiraProject('marketbeat')">
+              <span class="tab-indicator"></span><span>MarketBeat AI</span>
             </button>
           </div>
         </nav>
@@ -278,7 +275,7 @@
                   fontWeight="500"
                   letterSpacing="0.02em"
                 >
-                  analytics.adityadhiman.dev
+                  stockpulse.adityadhiman.dev
                 </text>
               </g>
               <!-- Navigation Icons -->
@@ -296,7 +293,7 @@
                 x="1"
                 y="52"
                 preserveAspectRatio="xMidYMid slice"
-                href="./theme-assets/mockups/fintech-saas-desktop.webp"
+                href="./theme-assets/mockups/stockpulse-desktop.webp"
                 style="clip-path: url(#inspira-safari-roundedBottom); transition: opacity 0.35s ease;"
               />
             </g>
@@ -312,6 +309,12 @@
               </clipPath>
             </defs>
           </svg>
+          <!-- HTML5 Video Overlay for Video Projects (AI Hustle Hub) -->
+          <div id="safariVideoWrap" style="position: absolute; top: 6.9057%; left: 0.0831%; width: 99.7506%; height: 92.9615%; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; opacity: 0; display: none; pointer-events: none; z-index: 2; transition: opacity 0.35s ease;">
+            <video id="safariMockupVideo" loop muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+              <source src="./theme-assets/mockups/aihustle-desktop.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
 
         <!-- ================= iPhone 15 Pro Mockup ================= -->
@@ -360,7 +363,7 @@
               height="843.5"
               preserveAspectRatio="xMidYMid slice"
               style="clip-path: url(#inspira-iphone-corners); transition: opacity 0.35s ease;"
-              href="./theme-assets/mockups/fintech-saas-mobile.webp"
+              href="./theme-assets/mockups/stockpulse-mobile.webp"
             />
 
             <!-- Dynamic Island Pill -->
@@ -384,6 +387,16 @@
               </clipPath>
             </defs>
           </svg>
+          <!-- HTML5 Video Overlay for Video Projects (AI Hustle Hub) -->
+          <div id="iphoneVideoWrap" style="position: absolute; top: 2.1825%; left: 4.9076%; width: 89.9538%; height: 95.6349%; border-radius: 40px; overflow: hidden; opacity: 0; display: none; pointer-events: none; z-index: 6; transition: opacity 0.35s ease;">
+            <!-- Dynamic Island Overlay for Phone Video -->
+            <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 78px; height: 22px; background: #000000; border-radius: 9999px; z-index: 10; pointer-events: none; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;">
+              <span style="width: 7px; height: 7px; border-radius: 50%; background: #080812; border: 1px solid #14192b; display: block;"></span>
+            </div>
+            <video id="iphoneMockupVideo" loop muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+              <source src="./theme-assets/mockups/aihustle-mobile.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
 
       </div>
@@ -393,19 +406,19 @@
         <div style="flex: 1; min-width: 260px;">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
             <h3 id="inspira-project-title" style="font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800; color: #000000; margin: 0; letter-spacing: -0.02em;">
-              FinTech Analytics SaaS
+              StockPulse Pro
             </h3>
             <span style="font-family: 'Manrope', sans-serif; color: #000000; font-size: 11.5px; font-weight: 800; background: #DCF247; border: 1.5px solid #000000; padding: 3px 12px; border-radius: 9999px; letter-spacing: 0.05em; text-transform: uppercase;">Active Production</span>
           </div>
           <p id="inspira-project-desc" style="font-family: 'Figtree', sans-serif; color: #000000; font-size: 15px; margin: 0; max-width: 650px; line-height: 1.6; font-weight: 600;">
-            Real-time financial telemetry platform with high-frequency algorithmic charting and predictive metrics.
+            Real-time stock trading &amp; portfolio analytics platform with algorithmic signals, live market depth, and watchlist execution.
           </p>
           <div id="inspira-project-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
             <span class="inspira-tech-tag">Next.js 14</span>
             <span class="inspira-tech-tag">TypeScript</span>
+            <span class="inspira-tech-tag">WebSockets</span>
+            <span class="inspira-tech-tag">FinTech</span>
             <span class="inspira-tech-tag">TailwindCSS</span>
-            <span class="inspira-tech-tag">PostgreSQL</span>
-            <span class="inspira-tech-tag">FastAPI</span>
           </div>
         </div>
 
@@ -831,72 +844,66 @@
 <script>
 (function() {
   const inspiraProjects = {
-    fintech: {
-      title: 'FinTech Analytics SaaS',
-      url: 'analytics.adityadhiman.dev',
-      desktop: './theme-assets/mockups/fintech-saas-desktop.webp',
-      mobile: './theme-assets/mockups/fintech-saas-mobile.webp',
-      desc: 'Real-time financial telemetry platform with high-frequency algorithmic charting and predictive metrics.',
-      tags: ['Next.js 14', 'TypeScript', 'TailwindCSS', 'PostgreSQL', 'FastAPI'],
+    stockpulse: {
+      title: 'StockPulse Pro',
+      url: 'stockpulse.adityadhiman.dev',
+      desktop: './theme-assets/mockups/stockpulse-desktop.webp',
+      mobile: './theme-assets/mockups/stockpulse-mobile.webp',
+      desc: 'Real-time stock trading & portfolio analytics platform with algorithmic signals, live market depth, and watchlist execution.',
+      tags: ['Next.js 14', 'TypeScript', 'WebSockets', 'FinTech', 'TailwindCSS'],
       link: 'latest-cases.html'
     },
-    b2b: {
-      title: 'B2B Enterprise Cloud Platform',
-      url: 'platform.adityadhiman.dev',
-      desktop: './theme-assets/mockups/b2b-platform-desktop.webp',
-      mobile: './theme-assets/mockups/b2b-platform-mobile.webp',
-      desc: 'Multi-tenant cloud orchestration platform featuring workflow automation, role-based auth, and team spaces.',
-      tags: ['React', 'Node.js', 'GraphQL', 'Docker', 'Redis'],
-      link: 'latest-cases.html'
+    prompxlab: {
+      title: 'PrompxLab AI',
+      url: 'prompxlab.ai',
+      desktop: './theme-assets/mockups/prompxlab-desktop.webp',
+      mobile: './theme-assets/mockups/prompxlab-mobile.webp',
+      desc: 'Prompt engineering and AI workflow optimizer designed to benchmark, test, and deploy production prompts across GPT-4o, Midjourney, and Claude.',
+      tags: ['Generative AI', 'Prompt Ops', 'OpenAI API', 'React', 'FastAPI'],
+      link: 'ai-development-integration.html'
     },
-    sasso: {
-      title: 'Sasso AI SaaS Application',
-      url: 'sasso-app.io',
-      desktop: './theme-assets/mockups/sasso-saas-desktop.webp',
-      mobile: './theme-assets/mockups/sasso-saas-mobile.webp',
-      desc: 'AI customer feedback and sentiment engine with automated triggers and Stripe subscription billing.',
-      tags: ['Next.js', 'Python', 'OpenAI API', 'Tailwind', 'Stripe'],
+    aihustle: {
+      title: 'AI Hustle Hub',
+      url: 'aihustlehub.com',
+      desktop: './theme-assets/mockups/aihustle-desktop.webp',
+      mobile: './theme-assets/mockups/aihustle-mobile.webp',
+      hasVideo: true,
+      desktopVideo: './theme-assets/mockups/aihustle-desktop.mp4',
+      mobileVideo: './theme-assets/mockups/aihustle-mobile.mp4',
+      desc: 'Automated digital product & AI workflow hub empowering creators with autonomous growth agents and revenue pipelines.',
+      tags: ['AI SaaS', 'Python Agents', 'Next.js', 'Stripe Billing', 'PostgreSQL'],
       link: 'saas-product-development.html'
     },
-    ecommerce: {
-      title: 'Headless E-Commerce Experience',
-      url: 'shop.adityadhiman.dev',
-      desktop: './theme-assets/mockups/ecommerce-store-desktop.webp',
-      mobile: './theme-assets/mockups/ecommerce-store-mobile.webp',
-      desc: 'Ultra-fast storefront architecture featuring sub-second checkout, dynamic cart synchronization, and CDN edge caching.',
-      tags: ['Shopify Headless', 'Next.js', 'GraphQL', 'Stripe', 'Algolia'],
+    payflow: {
+      title: 'PayFlow & FolioX',
+      url: 'payflow.adityadhiman.dev',
+      desktop: './theme-assets/mockups/payflow-desktop.webp',
+      mobile: './theme-assets/mockups/payflow-mobile.webp',
+      desc: 'Unified payment gateway and Demat investment portfolio tracker with instant multi-currency checkout and automated reconciliation.',
+      tags: ['FinTech', 'Payment Gateway', 'PostgreSQL', 'Stripe', 'React Native'],
       link: 'full-stack-web-development.html'
     },
-    portfolio: {
-      title: 'Digital Portfolio Hub & Cases',
-      url: 'adityadhiman.dev/cases',
-      desktop: './theme-assets/mockups/portfolio-hub-desktop.webp',
-      mobile: './theme-assets/mockups/portfolio-hub-mobile.webp',
-      desc: 'Interactive digital portfolio showcasing high-performance web applications and benchmarks.',
-      tags: ['Vanilla CSS', 'GSAP Motion', 'SVG Mockups', 'WebP', 'Responsive'],
+    syncride: {
+      title: 'SyncRide Transit',
+      url: 'syncride.app',
+      desktop: './theme-assets/mockups/syncride-desktop.webp',
+      mobile: './theme-assets/mockups/syncride-mobile.webp',
+      desc: 'Real-time public transit tracking and GPS fleet telemetry dashboard with live arrival forecasting and route visualization.',
+      tags: ['Geolocation', 'Mapbox GL', 'Firebase', 'WebSockets', 'Fleet GPS'],
       link: 'latest-cases.html'
     },
-    fullstack: {
-      title: 'Full-Stack Web Architecture',
-      url: 'adityadhiman.dev/services',
-      desktop: './theme-assets/84f89a5abe3a18d4d3c5c672f00e76ce2943f0ca-1440x835.png',
-      mobile: './theme-assets/mockups/b2b-platform-mobile.webp',
-      desc: 'Modern full-stack application blueprints with robust API services and component-driven frontends.',
-      tags: ['Full-Stack', 'APIs', 'Microservices', 'Clean Architecture'],
-      link: 'full-stack-web-development.html'
-    },
-    aihub: {
-      title: 'AI Engine & Custom Integrations',
-      url: 'adityadhiman.dev/ai-development',
-      desktop: './theme-assets/01601e135211833.61e428ba06f23.png',
-      mobile: './theme-assets/mockups/fintech-saas-mobile.webp',
-      desc: 'Custom LLM integration, intelligent conversational agents, and vector database embeddings.',
-      tags: ['LLM APIs', 'Vector DB', 'RAG Pipelines', 'OpenAI', 'Claude'],
+    marketbeat: {
+      title: 'MarketBeat AI',
+      url: 'marketbeat.adityadhiman.dev',
+      desktop: './theme-assets/mockups/marketbeat-desktop.webp',
+      mobile: './theme-assets/mockups/marketbeat-mobile.webp',
+      desc: 'Autonomous market intelligence platform providing AI sentiment classification, SEC filing analysis, and real-time feeds.',
+      tags: ['Market Intelligence', 'LLM RAG', 'Python', 'TradingView', 'Docker'],
       link: 'ai-development-integration.html'
     }
   };
 
-  const projectKeys = ['fintech', 'b2b', 'sasso', 'ecommerce', 'portfolio', 'fullstack', 'aihub'];
+  const projectKeys = ['stockpulse', 'prompxlab', 'aihustle', 'payflow', 'syncride', 'marketbeat'];
   let currentProjectIndex = 0;
   let autoChangeTimer = null;
   const AUTO_INTERVAL_MS = 2200; // Faster snappier transitions (2.2s)
@@ -924,18 +931,51 @@
     const sImg = document.getElementById('safariMockupImg');
     const sUrl = document.getElementById('safariMockupUrl');
     const mImg = document.getElementById('iphoneMockupImg');
+    const sVideoWrap = document.getElementById('safariVideoWrap');
+    const mVideoWrap = document.getElementById('iphoneVideoWrap');
+    const sVideo = document.getElementById('safariMockupVideo');
+    const mVideo = document.getElementById('iphoneMockupVideo');
 
-    if (sImg && mImg) {
-      sImg.style.opacity = '0';
-      mImg.style.opacity = '0';
-      setTimeout(() => {
-        sImg.setAttribute('href', proj.desktop);
-        mImg.setAttribute('href', proj.mobile);
-        if (sUrl) sUrl.textContent = proj.url;
-        sImg.style.opacity = '1';
-        mImg.style.opacity = '1';
-      }, 180);
+    if (proj.hasVideo) {
+      // Fade out static images, fade in videos
+      if (sImg && mImg) {
+        sImg.style.opacity = '0';
+        mImg.style.opacity = '0';
+      }
+      if (sVideoWrap && mVideoWrap) {
+        sVideoWrap.style.display = 'block';
+        mVideoWrap.style.display = 'block';
+        setTimeout(() => {
+          sVideoWrap.style.opacity = '1';
+          mVideoWrap.style.opacity = '1';
+          if (sVideo) { sVideo.currentTime = 0; sVideo.play().catch(() => {}); }
+          if (mVideo) { mVideo.currentTime = 0; mVideo.play().catch(() => {}); }
+        }, 50);
+      }
+    } else {
+      // Fade out videos, fade in static images
+      if (sVideoWrap && mVideoWrap) {
+        sVideoWrap.style.opacity = '0';
+        mVideoWrap.style.opacity = '0';
+        setTimeout(() => {
+          sVideoWrap.style.display = 'none';
+          mVideoWrap.style.display = 'none';
+          if (sVideo) sVideo.pause();
+          if (mVideo) mVideo.pause();
+        }, 200);
+      }
+      if (sImg && mImg) {
+        sImg.style.opacity = '0';
+        mImg.style.opacity = '0';
+        setTimeout(() => {
+          sImg.setAttribute('href', proj.desktop);
+          mImg.setAttribute('href', proj.mobile);
+          sImg.style.opacity = '1';
+          mImg.style.opacity = '1';
+        }, 180);
+      }
     }
+    if (sUrl) sUrl.textContent = proj.url;
 
     // Update info drawer
     const tEl = document.getElementById('inspira-project-title');
@@ -953,15 +993,19 @@
 
   function startAutoCycle() {
     stopAutoCycle();
-    autoChangeTimer = setInterval(() => {
+    const currentKey = projectKeys[currentProjectIndex];
+    const isVideo = inspiraProjects[currentKey]?.hasVideo;
+    const interval = isVideo ? 10000 : AUTO_INTERVAL_MS;
+    autoChangeTimer = setTimeout(() => {
       currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
       switchInspiraProject(projectKeys[currentProjectIndex], false); // NEVER scroll window during background auto-cycle
-    }, AUTO_INTERVAL_MS);
+      startAutoCycle();
+    }, interval);
   }
 
   function stopAutoCycle() {
     if (autoChangeTimer) {
-      clearInterval(autoChangeTimer);
+      clearTimeout(autoChangeTimer);
       autoChangeTimer = null;
     }
   }
@@ -1022,44 +1066,44 @@
       <!-- Column 1: Left 3D Column (translateYFirst, translateXFirst, rotateZFirst) -->
       <div id="parallax-col-1" class="parallax-column" style="display: flex; flex-direction: column; gap: 36px; will-change: transform;">
         <div class="parallax-card-item" onclick="openParallaxLightbox(0)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/fintech-saas-desktop.webp" alt="FinTech Analytics SaaS" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/stockpulse-desktop.webp" alt="StockPulse Pro Platform" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Web Application</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">FinTech Analytics SaaS</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Next.js 14 • FastAPI • PostgreSQL</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">FinTech Trading</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">StockPulse Pro Platform</h4>
+            <span style="font-size: 12px; color: #94a3b8;">Next.js 14 • WebSockets • FinTech</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(1)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/b2b-platform-desktop.webp" alt="B2B Enterprise Cloud" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/prompxlab-desktop.webp" alt="PrompxLab AI Optimizer" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Cloud Platform</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">B2B Enterprise Cloud</h4>
-            <span style="font-size: 12px; color: #94a3b8;">React • GraphQL • Docker</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Generative AI Ops</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">PrompxLab AI Optimizer</h4>
+            <span style="font-size: 12px; color: #94a3b8;">GPT-4o • Midjourney • FastAPI</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(2)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/sasso-saas-desktop.webp" alt="Sasso AI SaaS App" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/aihustle-desktop.webp" alt="AI Hustle Hub SaaS" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Sentiment Engine</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">Sasso AI SaaS App</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Python • OpenAI • Stripe</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Autonomous AI SaaS</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">AI Hustle Hub SaaS</h4>
+            <span style="font-size: 12px; color: #94a3b8;">Python Agents • Next.js • Stripe</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(3)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/ecommerce-store-desktop.webp" alt="Headless E-Commerce" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/payflow-desktop.webp" alt="PayFlow & FolioX" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Storefront Architecture</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">Headless E-Commerce</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Shopify • Tailwind • Edge</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">FinTech Payments</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">PayFlow &amp; FolioX</h4>
+            <span style="font-size: 12px; color: #94a3b8;">Payment Gateway • Demat • PostgreSQL</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
@@ -1206,55 +1250,55 @@
       <!-- Column 3: Right 3D Column (translateYThird, translateXThird, rotateZThird) -->
       <div id="parallax-col-3" class="parallax-column" style="display: flex; flex-direction: column; gap: 36px; will-change: transform;">
         <div class="parallax-card-item" onclick="openParallaxLightbox(16)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/fintech-saas-mobile.webp" alt="FinTech Mobile Experience" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/stockpulse-mobile.webp" alt="StockPulse Pro Mobile" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">iOS & Android Telemetry</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">FinTech Mobile Experience</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Mobile-First UI</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">FinTech Trading Mobile</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">StockPulse Pro Mobile</h4>
+            <span style="font-size: 12px; color: #94a3b8;">Real-Time Watchlist & Telemetry</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(17)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/b2b-platform-mobile.webp" alt="B2B Mobile Workflow" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/prompxlab-mobile.webp" alt="PrompxLab Mobile App" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Team Spaces on Mobile</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">B2B Mobile Workflow</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Touch Responsive</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">AI Prompt Ops</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">PrompxLab Mobile App</h4>
+            <span style="font-size: 12px; color: #94a3b8;">On-The-Go LLM Tuning</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(18)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/sasso-saas-mobile.webp" alt="Sasso Mobile Client" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/aihustle-mobile.webp" alt="AI Hustle Mobile Client" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Feedback Management</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">Sasso Mobile Client</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Real-Time Sync</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Creator Agents</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">AI Hustle Mobile Client</h4>
+            <span style="font-size: 12px; color: #94a3b8;">Real-Time Growth &amp; Revenue</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(19)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/ecommerce-store-mobile.webp" alt="Headless Mobile Store" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/payflow-mobile.webp" alt="FolioX Demat Mobile" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Sub-Second Checkout</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">Headless Mobile Store</h4>
-            <span style="font-size: 12px; color: #94a3b8;">Dynamic Cart</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Demat Portfolio</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">FolioX Demat Mobile</h4>
+            <span style="font-size: 12px; color: #94a3b8;">Mutual Funds &amp; Demat Tracking</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </div>
         </div>
         <div class="parallax-card-item" onclick="openParallaxLightbox(20)" style="position: relative; border-radius: 16px; overflow: hidden; background: #131728; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;">
-          <img src="./theme-assets/mockups/portfolio-hub-desktop.webp" alt="Digital Portfolio Hub" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
+          <img src="./theme-assets/mockups/syncride-desktop.webp" alt="SyncRide Transit Platform" loading="lazy" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease;" />
           <div class="parallax-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,27,0) 40%, rgba(11,14,27,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; opacity: 0.95; transition: opacity 0.3s ease;">
-            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Live Case Studies</span>
-            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">Digital Portfolio Hub</h4>
-            <span style="font-size: 12px; color: #94a3b8;">WebGL & Motion</span>
+            <span style="font-size: 11px; font-weight: 700; color: #DCF247; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Live Fleet Telemetry</span>
+            <h4 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0 0 4px 0; line-height: 1.3;">SyncRide Transit Platform</h4>
+            <span style="font-size: 12px; color: #94a3b8;">GPS Bus &amp; Fleet Telemetry</span>
           </div>
           <div class="parallax-zoom-icon" style="position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(11,14,27,0.7); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: all 0.25s ease;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCF247" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
@@ -1357,10 +1401,10 @@
 <script>
 (function() {
   const galleryData = [
-    {"src": "./theme-assets/mockups/fintech-saas-desktop.webp", "title": "FinTech Analytics SaaS", "desc": "Next.js 14 • FastAPI • PostgreSQL"},
-    {"src": "./theme-assets/mockups/b2b-platform-desktop.webp", "title": "B2B Enterprise Cloud", "desc": "React • GraphQL • Docker"},
-    {"src": "./theme-assets/mockups/sasso-saas-desktop.webp", "title": "Sasso AI SaaS App", "desc": "Python • OpenAI • Stripe"},
-    {"src": "./theme-assets/mockups/ecommerce-store-desktop.webp", "title": "Headless E-Commerce", "desc": "Shopify • Tailwind • Edge"},
+    {"src": "./theme-assets/mockups/stockpulse-desktop.webp", "title": "StockPulse Pro Platform", "desc": "Next.js 14 • WebSockets • FinTech"},
+    {"src": "./theme-assets/mockups/prompxlab-desktop.webp", "title": "PrompxLab AI Optimizer", "desc": "GPT-4o • Midjourney • FastAPI"},
+    {"src": "./theme-assets/mockups/aihustle-desktop.webp", "title": "AI Hustle Hub SaaS", "desc": "Python Agents • Next.js • Stripe"},
+    {"src": "./theme-assets/mockups/payflow-desktop.webp", "title": "PayFlow & FolioX", "desc": "Payment Gateway • Demat • PostgreSQL"},
     {"src": "./theme-assets/myvidcon_poster.jpg", "title": "Adi Engineering Studio", "desc": "Production Hardware & Monitor"},
     {"src": "./theme-assets/img-gr1.webp", "title": "Design Architecture Matrix", "desc": "Design Tokens • CSS3"},
     {"src": "./theme-assets/img-gr2-1.webp", "title": "Performance Optimization", "desc": "Lighthouse 100% • Speed"},
@@ -1373,11 +1417,11 @@
     {"src": "./theme-assets/client-sai.webp", "title": "Enterprise Client Trust", "desc": "Sai Prasad Review"},
     {"src": "./devfolio/wizard.png", "title": "AI Workflow Automation", "desc": "Intelligent Automation"},
     {"src": "./devfolio/bs3.png", "title": "Platform Scaling Infrastructure", "desc": "High Concurrency"},
-    {"src": "./theme-assets/mockups/fintech-saas-mobile.webp", "title": "FinTech Mobile Experience", "desc": "Mobile-First UI"},
-    {"src": "./theme-assets/mockups/b2b-platform-mobile.webp", "title": "B2B Mobile Workflow", "desc": "Touch Responsive"},
-    {"src": "./theme-assets/mockups/sasso-saas-mobile.webp", "title": "Sasso Mobile Client", "desc": "Real-Time Sync"},
-    {"src": "./theme-assets/mockups/ecommerce-store-mobile.webp", "title": "Headless Mobile Store", "desc": "Sub-Second Checkout"},
-    {"src": "./theme-assets/mockups/portfolio-hub-desktop.webp", "title": "Digital Portfolio Hub", "desc": "WebGL & Motion"},
+    {"src": "./theme-assets/mockups/stockpulse-mobile.webp", "title": "StockPulse Pro Mobile", "desc": "Real-Time Watchlist & Telemetry"},
+    {"src": "./theme-assets/mockups/prompxlab-mobile.webp", "title": "PrompxLab Mobile App", "desc": "On-The-Go LLM Tuning"},
+    {"src": "./theme-assets/mockups/aihustle-mobile.webp", "title": "AI Hustle Mobile Client", "desc": "Real-Time Growth & Revenue"},
+    {"src": "./theme-assets/mockups/payflow-mobile.webp", "title": "FolioX Demat Mobile", "desc": "Mutual Funds & Demat Tracking"},
+    {"src": "./theme-assets/mockups/syncride-desktop.webp", "title": "SyncRide Transit Platform", "desc": "GPS Bus & Fleet Telemetry"},
     {"src": "./devfolio/client2.jpg", "title": "Startup Executive Feedback", "desc": "Silicon Valley"},
     {"src": "./devfolio/client3.jpg", "title": "Agency Director Review", "desc": "Toronto, Canada"},
     {"src": "./theme-assets/img-gr4.webp", "title": "Creative Experience Design", "desc": "Creative Tech"}
