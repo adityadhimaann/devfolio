@@ -700,16 +700,182 @@ html.lenis, html.lenis body {
    NAVBAR DROPDOWN BEHAVIOR & HOVER FIXES
    ========================================================================== */
 
-/* Disable any dummy sub-menus completely so there is zero unwanted hyperlink activity */
-.pxl-menu-primary .sub-menu,
-.pxl-nav-menu .sub-menu,
-.pxl-header-nav .sub-menu,
-.menu-item-has-children .sub-menu,
-.pxl-mega-menu {
-    display: none !important;
-    visibility: hidden !important;
+/* ==========================================================================
+   NAVBAR DROPDOWN BEHAVIOR & STYLING (DESKTOP & MOBILE)
+   ========================================================================== */
+
+/* Invisible hover bridge between navbar item and dropdown */
+.pxl-menu-primary > li.menu-item-has-children {
+    position: relative;
+}
+.pxl-menu-primary > li.menu-item-has-children::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    height: 25px;
+    z-index: 9998;
+}
+
+/* Chevron arrow rotation */
+.pxl-menu-primary > li.menu-item-has-children > a i.caseicon-angle-arrow-down {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 6px !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.pxl-menu-primary > li.menu-item-has-children:hover > a i.caseicon-angle-arrow-down,
+.pxl-menu-primary > li.menu-item-has-children.active > a i.caseicon-angle-arrow-down {
+    transform: rotate(180deg) !important;
+}
+.pxl-menu-primary > li:hover > a .dropdown-icon-svg {
+    stroke: #DCF247 !important;
+}
+
+/* Desktop Header Dropdowns (Transparent & Sticky) */
+.pxl-header-elementor-main .pxl-menu-primary .sub-menu,
+.pxl-header-elementor-sticky .pxl-menu-primary .sub-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(10px) !important;
+    min-width: 270px !important;
+    background: rgba(13, 17, 34, 0.97) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 18px !important;
+    padding: 10px 8px !important;
+    margin: 0 !important;
+    list-style: none !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(220, 242, 71, 0.08) !important;
+    z-index: 99999 !important;
+    display: block !important;
     opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
     pointer-events: none !important;
+}
+
+/* Caret indicator */
+.pxl-header-elementor-main .pxl-menu-primary .sub-menu::before,
+.pxl-header-elementor-sticky .pxl-menu-primary .sub-menu::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+    width: 12px !important;
+    height: 12px !important;
+    background: rgba(13, 17, 34, 0.97) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Hover reveal */
+.pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children:hover > .sub-menu,
+.pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children:hover > .sub-menu,
+.pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children:focus-within > .sub-menu,
+.pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children:focus-within > .sub-menu,
+.pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children.force-open > .sub-menu,
+.pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children.force-open > .sub-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+/* Submenu items */
+.pxl-menu-primary .sub-menu li {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    float: none !important;
+    display: block !important;
+}
+
+.pxl-menu-primary .sub-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 14px !important;
+    color: #CBD5E1 !important;
+    font-family: 'Figtree', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    text-decoration: none !important;
+    border-radius: 10px !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    white-space: nowrap !important;
+}
+
+.pxl-menu-primary .sub-menu li a:hover {
+    background: rgba(220, 242, 71, 0.12) !important;
+    color: #DCF247 !important;
+    transform: translateX(4px) !important;
+}
+
+.pxl-menu-primary .sub-menu li a span.menu-badge {
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    padding: 2px 7px !important;
+    border-radius: 999px !important;
+    background: rgba(220, 242, 71, 0.15) !important;
+    color: #DCF247 !important;
+    border: 1px solid rgba(220, 242, 71, 0.3) !important;
+    margin-left: 12px !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+/* Mobile Drawer Sub-Menu */
+#pxl-header-mobile .pxl-menu-primary .sub-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    display: none;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-left: 2px solid #DCF247 !important;
+    padding: 6px 8px !important;
+    margin: 6px 0 12px 14px !important;
+    box-shadow: none !important;
+    min-width: unset !important;
+}
+
+#pxl-header-mobile .pxl-menu-primary .sub-menu.active {
+    display: block !important;
+}
+
+#pxl-header-mobile .pxl-menu-primary .sub-menu li a {
+    padding: 9px 12px !important;
+    font-size: 14px !important;
+    color: #CBD5E1 !important;
+    line-height: 1.3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+#pxl-header-mobile .pxl-menu-primary .sub-menu li a:hover,
+#pxl-header-mobile .pxl-menu-primary .sub-menu li a:active {
+    color: #DCF247 !important;
+    background: rgba(220, 242, 71, 0.08) !important;
+}
+
+#pxl-header-mobile .pxl-menu-toggle {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
 }
 
 /* ==========================================================================
