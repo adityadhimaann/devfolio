@@ -176,34 +176,39 @@
   
   <div class="container" style="max-width: 1240px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
     
-        <!-- Resizable Navbar Floating Dock for Projects -->
+        <!-- Resizable Navbar Floating Dock with Inspira UI NeonBorder -->
     <div class="inspira-navbar-wrapper" style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 44px; padding: 0 10px; position: relative; z-index: 20;">
-      <nav class="inspira-resizable-nav" id="inspiraResizableNav">
-        <!-- Scrollable Project Tabs -->
-        <div class="inspira-nav-items-scroller" id="inspiraTabsScroller">
-          <button class="inspira-project-btn active" data-project="fintech" onclick="manualSwitchInspiraProject('fintech')">
-            <span class="tab-indicator"></span><span>FinTech Analytics</span>
-          </button>
-          <button class="inspira-project-btn" data-project="b2b" onclick="manualSwitchInspiraProject('b2b')">
-            <span class="tab-indicator"></span><span>B2B Platform</span>
-          </button>
-          <button class="inspira-project-btn" data-project="sasso" onclick="manualSwitchInspiraProject('sasso')">
-            <span class="tab-indicator"></span><span>Sasso SaaS</span>
-          </button>
-          <button class="inspira-project-btn" data-project="ecommerce" onclick="manualSwitchInspiraProject('ecommerce')">
-            <span class="tab-indicator"></span><span>Headless Shop</span>
-          </button>
-          <button class="inspira-project-btn" data-project="portfolio" onclick="manualSwitchInspiraProject('portfolio')">
-            <span class="tab-indicator"></span><span>Cases Hub</span>
-          </button>
-          <button class="inspira-project-btn" data-project="fullstack" onclick="manualSwitchInspiraProject('fullstack')">
-            <span class="tab-indicator"></span><span>Full-Stack Core</span>
-          </button>
-          <button class="inspira-project-btn" data-project="aihub" onclick="manualSwitchInspiraProject('aihub')">
-            <span class="tab-indicator"></span><span>AI Engine</span>
-          </button>
-        </div>
-      </nav>
+      <!-- Inspira UI NeonBorder Wrapper (color1: #0496ff, color2: #ff0a54, animationType: half, duration: 6s) -->
+      <div class="inspira-neon-border-container" data-animation-type="half" data-duration="6">
+        <div class="inspira-neon-glow-beam"></div>
+        <div class="inspira-neon-sharp-beam"></div>
+        <nav class="inspira-resizable-nav" id="inspiraResizableNav">
+          <!-- Scrollable Project Tabs -->
+          <div class="inspira-nav-items-scroller" id="inspiraTabsScroller">
+            <button class="inspira-project-btn active" data-project="fintech" onclick="manualSwitchInspiraProject('fintech')">
+              <span class="tab-indicator"></span><span>FinTech Analytics</span>
+            </button>
+            <button class="inspira-project-btn" data-project="b2b" onclick="manualSwitchInspiraProject('b2b')">
+              <span class="tab-indicator"></span><span>B2B Platform</span>
+            </button>
+            <button class="inspira-project-btn" data-project="sasso" onclick="manualSwitchInspiraProject('sasso')">
+              <span class="tab-indicator"></span><span>Sasso SaaS</span>
+            </button>
+            <button class="inspira-project-btn" data-project="ecommerce" onclick="manualSwitchInspiraProject('ecommerce')">
+              <span class="tab-indicator"></span><span>Headless Shop</span>
+            </button>
+            <button class="inspira-project-btn" data-project="portfolio" onclick="manualSwitchInspiraProject('portfolio')">
+              <span class="tab-indicator"></span><span>Cases Hub</span>
+            </button>
+            <button class="inspira-project-btn" data-project="fullstack" onclick="manualSwitchInspiraProject('fullstack')">
+              <span class="tab-indicator"></span><span>Full-Stack Core</span>
+            </button>
+            <button class="inspira-project-btn" data-project="aihub" onclick="manualSwitchInspiraProject('aihub')">
+              <span class="tab-indicator"></span><span>AI Engine</span>
+            </button>
+          </div>
+        </nav>
+      </div>
     </div>
 
     <!-- Showcase Stage Canvas (Solid Dark background, no bleeding gradient) -->
@@ -430,17 +435,94 @@
   z-index: 20;
 }
 
+/* ========================================================
+   INSPIRA UI NEON BORDER COMPONENT
+   Props: color1: #0496ff, color2: #ff0a54, animationType: 'half', duration: 6s
+   ======================================================== */
+:root {
+  --neon-color-1: #0496ff;
+  --neon-color-2: #ff0a54;
+  --neon-duration: 6s;
+}
+
+.inspira-neon-border-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 2.5px; /* Precision 2.5px neon border track */
+  max-width: 100%;
+  overflow: hidden;
+  box-shadow: 0 10px 32px -5px rgba(4, 150, 255, 0.28), 0 14px 38px -5px rgba(255, 10, 84, 0.28), 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+/* Ambient neon glow radiating outwards */
+.inspira-neon-glow-beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350%;
+  height: 900%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 160deg,
+    var(--neon-color-1) 220deg,
+    var(--neon-color-2) 340deg,
+    transparent 360deg
+  );
+  animation: neon-border-spin var(--neon-duration) linear infinite;
+  filter: blur(14px);
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Crisp neon border line tracing the perimeter */
+.inspira-neon-sharp-beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350%;
+  height: 900%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 160deg,
+    var(--neon-color-1) 220deg,
+    var(--neon-color-2) 340deg,
+    transparent 360deg
+  );
+  animation: neon-border-spin var(--neon-duration) linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes neon-border-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 .inspira-resizable-nav {
+  position: relative;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 5px 6px;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-radius: 9999px;
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   max-width: 100%;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -817,9 +899,9 @@
   const projectKeys = ['fintech', 'b2b', 'sasso', 'ecommerce', 'portfolio', 'fullstack', 'aihub'];
   let currentProjectIndex = 0;
   let autoChangeTimer = null;
-  const AUTO_INTERVAL_MS = 3800;
+  const AUTO_INTERVAL_MS = 2200; // Faster snappier transitions (2.2s)
 
-  function switchInspiraProject(key, scrollIntoView = true) {
+  function switchInspiraProject(key, scrollIntoView = false) {
     const proj = inspiraProjects[key];
     if (!proj) return;
 
@@ -830,8 +912,12 @@
       const isActive = b.dataset.project === key;
       b.classList.toggle('active', isActive);
       if (isActive && scrollIntoView) {
-        // Smoothly scroll the tab into view on mobile
-        b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        // Only scroll the internal horizontal tab bar, NEVER hijack the browser window scroll
+        const scroller = b.closest('.inspira-nav-items-scroller');
+        if (scroller) {
+          const targetLeft = b.offsetLeft - (scroller.clientWidth / 2) + (b.clientWidth / 2);
+          scroller.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+        }
       }
     });
 
@@ -869,7 +955,7 @@
     stopAutoCycle();
     autoChangeTimer = setInterval(() => {
       currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
-      switchInspiraProject(projectKeys[currentProjectIndex], true);
+      switchInspiraProject(projectKeys[currentProjectIndex], false); // NEVER scroll window during background auto-cycle
     }, AUTO_INTERVAL_MS);
   }
 
@@ -895,8 +981,28 @@
     canvas.addEventListener('touchend', startAutoCycle, { passive: true });
   }
 
-  // Start auto rotation immediately
-  startAutoCycle();
+  const navDock = document.getElementById('inspiraResizableNav');
+  if (navDock) {
+    navDock.addEventListener('mouseenter', stopAutoCycle);
+    navDock.addEventListener('mouseleave', startAutoCycle);
+  }
+
+  // Run auto rotation only when showcase section is actually visible in the viewport
+  const showcaseSection = document.getElementById('device-showcase');
+  if (showcaseSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startAutoCycle();
+        } else {
+          stopAutoCycle();
+        }
+      });
+    }, { threshold: 0.12 });
+    observer.observe(showcaseSection);
+  } else {
+    startAutoCycle();
+  }
 })();
 </script>
 
