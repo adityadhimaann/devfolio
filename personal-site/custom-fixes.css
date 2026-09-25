@@ -1892,32 +1892,49 @@ html.lenis, html.lenis body {
 /* ==========================================================================
    MACOS INTERACTIVE MAGNIFICATION DOCK COMPONENT (Inspira UI / Magic UI)
    ========================================================================== */
-.adi-hero-dock-wrap {
+.adi-hero-cta-group {
     display: inline-flex;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 24px; /* mb-6 */
-    width: auto;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 15px;
+    margin-bottom: 28px;
     position: relative;
-    z-index: 20;
+    z-index: 25;
 }
-.adi-hero-dock-wrap.mb-6 {
-    margin-bottom: 24px !important;
+
+.adi-hero-cta-group .elementor-element-fde2490 {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+.adi-hero-cta-group .pxl-button {
+    margin: 0 !important;
+}
+
+.adi-hero-cta-group .adi-hero-dock-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
 }
 
 .adi-dock {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 8px 16px;
-    background: rgba(13, 17, 34, 0.82);
+    gap: 10px;
+    padding: 6px 14px;
+    background: rgba(13, 17, 34, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 9999px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(220, 242, 71, 0.05);
-    min-height: 64px;
+    min-height: 56px;
     position: relative;
     user-select: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1942,19 +1959,10 @@ html.lenis, html.lenis body {
     text-decoration: none;
     cursor: pointer;
     flex-shrink: 0;
-    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                background 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-    will-change: width, height;
-}
-
-/* While cursor is actively tracking across dock, zero-latency size response */
-.adi-dock.is-active .adi-dock-icon {
     transition: background 0.2s ease,
                 border-color 0.2s ease,
                 box-shadow 0.2s ease;
+    will-change: width, height;
 }
 
 .adi-dock-icon:hover {
@@ -1982,7 +1990,7 @@ html.lenis, html.lenis body {
 
 .adi-dock-separator {
     width: 1px;
-    height: 28px;
+    height: 24px;
     background: rgba(255, 255, 255, 0.2);
     margin: 0 2px;
     flex-shrink: 0;
@@ -2031,14 +2039,14 @@ html.lenis, html.lenis body {
 }
 
 @media (max-width: 767px) {
-    .adi-hero-dock-wrap {
-        margin-top: 14px;
-        margin-bottom: 20px;
-        justify-content: flex-start;
+    .adi-hero-cta-group {
+        gap: 16px;
+        margin-top: 10px;
+        margin-bottom: 24px;
     }
     .adi-dock {
-        padding: 6px 12px;
-        min-height: 56px;
+        padding: 5px 12px;
+        min-height: 52px;
         gap: 8px;
     }
 }

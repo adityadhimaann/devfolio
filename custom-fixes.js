@@ -373,47 +373,102 @@
 
             var magnification = parseFloat(dock.getAttribute('data-magnification')) || 60;
             var distance = parseFloat(dock.getAttribute('data-distance')) || 140;
-            var baseSize = 40; // Default resting size in px
+            var baseSize = 40; // Default base size in px
 
+            var iconsData = [];
+            icons.forEach(function (icon) {
+                iconsData.push({
+                    el: icon,
+                    currentSize: baseSize,
+                    targetSize: baseSize
+                });
+            });
+
+            var mouseX = null;
             var isHovered = false;
+            var rafId = null;
 
-            function updateIcons(mouseX) {
-                icons.forEach(function (icon) {
-                    var rect = icon.getBoundingClientRect();
-                    var iconCenter = rect.left + rect.width / 2;
-                    var d = Math.abs(mouseX - iconCenter);
+            function updateTargets() {
+                var centers = [];
+                // Phase 1: Batch read bounding rect centers
+                iconsData.forEach(function (item) {
+                    var rect = item.el.getBoundingClientRect();
+                    centers.push(rect.left + rect.width / 2);
+                });
 
-                    if (d < distance) {
-                        var progress = Math.cos((d / distance) * (Math.PI / 2));
-                        var currentSize = baseSize + (magnification - baseSize) * Math.pow(progress, 1.25);
-                        icon.style.width = currentSize + 'px';
-                        icon.style.height = currentSize + 'px';
+                // Phase 2: Compute target size for each icon based on distance curve
+                if (isHovered && mouseX !== null) {
+                    iconsData.forEach(function (item, idx) {
+                        var d = Math.abs(mouseX - centers[idx]);
+                        if (d < distance) {
+                            var progress = Math.cos((d / distance) * (Math.PI / 2));
+                            item.targetSize = baseSize + (magnification - baseSize) * progress;
+                        } else {
+                            item.targetSize = baseSize;
+                        }
+                    });
+                } else {
+                    iconsData.forEach(function (item) {
+                        item.targetSize = baseSize;
+                    });
+                }
+            }
+
+            function step() {
+                updateTargets();
+
+                var stillMoving = false;
+                // Phase 3: Smooth spring lerp & batch write styles
+                iconsData.forEach(function (item) {
+                    var diff = item.targetSize - item.currentSize;
+                    if (Math.abs(diff) > 0.05) {
+                        item.currentSize += diff * 0.22;
+                        stillMoving = true;
                     } else {
-                        icon.style.width = baseSize + 'px';
-                        icon.style.height = baseSize + 'px';
+                        item.currentSize = item.targetSize;
                     }
+                    item.el.style.width = item.currentSize.toFixed(2) + 'px';
+                    item.el.style.height = item.currentSize.toFixed(2) + 'px';
                 });
+
+                if (stillMoving || isHovered) {
+                    rafId = requestAnimationFrame(step);
+                } else {
+                    // Reset inline styles cleanly when dock is at rest
+                    iconsData.forEach(function (item) {
+                        item.el.style.width = '';
+                        item.el.style.height = '';
+                        item.currentSize = baseSize;
+                        item.targetSize = baseSize;
+                    });
+                    rafId = null;
+                }
             }
 
-            function resetIcons() {
-                icons.forEach(function (icon) {
-                    icon.style.width = baseSize + 'px';
-                    icon.style.height = baseSize + 'px';
-                });
-            }
+            dock.addEventListener('mouseenter', function (e) {
+                isHovered = true;
+                mouseX = e.clientX;
+                dock.classList.add('is-active');
+                if (!rafId) {
+                    rafId = requestAnimationFrame(step);
+                }
+            });
 
             dock.addEventListener('mousemove', function (e) {
-                if (!isHovered) {
-                    isHovered = true;
-                    dock.classList.add('is-active');
+                isHovered = true;
+                mouseX = e.clientX;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(step);
                 }
-                updateIcons(e.clientX);
             });
 
             dock.addEventListener('mouseleave', function () {
                 isHovered = false;
+                mouseX = null;
                 dock.classList.remove('is-active');
-                resetIcons();
+                if (!rafId) {
+                    rafId = requestAnimationFrame(step);
+                }
             });
         });
     }
