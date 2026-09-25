@@ -125,17 +125,195 @@
         });
     }
 
+    function lerp(start, end, t) {
+        return start + (end - start) * t;
+    }
+
+    function shouldSkipGalleryImage(src) {
+        var value = String(src || '').toLowerCase();
+        var skip = [
+            'adi-logo',
+            'favicon',
+            'loading-img',
+            'gradien',
+            'gradiend',
+            'logo-light',
+            'logo-1.png',
+            'catchyleads-logo',
+            'admin-150',
+            '.svg',
+            'data:image'
+        ];
+        return skip.some(function (token) {
+            return value.indexOf(token) !== -1;
+        });
+    }
+
+    function toSitePath(src) {
+        try {
+            var url = new URL(src, window.location.href);
+            var path = url.pathname.replace(/\\/g, '/');
+            var marker = '/theme-assets/';
+            var idx = path.lastIndexOf(marker);
+            if (idx !== -1) {
+                return '.' + path.slice(idx);
+            }
+            var devfolio = path.lastIndexOf('/devfolio/');
+            if (devfolio !== -1) {
+                return '.' + path.slice(devfolio);
+            }
+            return src;
+        } catch (err) {
+            return src;
+        }
+    }
+
+    function collectSiteImages() {
+        var curated = [
+            './theme-assets/portfolio1-580x580.webp',
+            './theme-assets/portfolio2-580x580.webp',
+            './theme-assets/portfolio3-580x580.webp',
+            './theme-assets/portfolio4-580x580.webp',
+            './theme-assets/portfolio5-580x580.webp',
+            './theme-assets/portfolio6-580x580.webp',
+            './theme-assets/service1.webp',
+            './theme-assets/service2.webp',
+            './theme-assets/service3.webp',
+            './theme-assets/service4.webp',
+            './theme-assets/service5.webp',
+            './theme-assets/service6.webp',
+            './theme-assets/84f89a5abe3a18d4d3c5c672f00e76ce2943f0ca-1440x835.png',
+            './theme-assets/01601e135211833.61e428ba06f23.png',
+            './theme-assets/a27815258b737ebbf6d42e0156029940.png',
+            './theme-assets/idygrnqd2yu9f12toa8w.jpg',
+            './theme-assets/blog1h4.webp',
+            './theme-assets/blog2h4.webp',
+            './theme-assets/blog3h4.webp',
+            './theme-assets/blog4h4.webp',
+            './theme-assets/img-gr1.webp',
+            './theme-assets/img-gr2-1.webp',
+            './theme-assets/img-gr3.webp',
+            './theme-assets/img-gr4.webp',
+            './theme-assets/sde.webp',
+            './theme-assets/myimg2.webp',
+            './theme-assets/01_Digital_Marketing-1.webp',
+            './theme-assets/02_SEO-1.webp',
+            './theme-assets/03_Branding_Agency-1.webp',
+            './theme-assets/04_SEO_Marketing-1.webp'
+        ];
+
+        var seen = {};
+        var images = [];
+
+        function add(src) {
+            if (!src || shouldSkipGalleryImage(src)) return;
+            var path = toSitePath(src);
+            if (seen[path]) return;
+            seen[path] = true;
+            images.push(path);
+        }
+
+        curated.forEach(add);
+        document.querySelectorAll('img').forEach(function (img) {
+            add(img.getAttribute('src') || img.currentSrc || img.src);
+        });
+
+        return images;
+    }
+
+    function splitImages(images) {
+        var third = Math.ceil(images.length / 3) || 1;
+        return [
+            images.slice(0, third),
+            images.slice(third, third * 2),
+            images.slice(third * 2)
+        ];
+    }
+
+    function renderColumn(images, variant) {
+        return images.map(function (src, idx) {
+            return (
+                '<div class="adi-parallax-card" data-parallax-variant="' + variant + '">' +
+                    '<img alt="ADI portfolio visual ' + (idx + 1) + '" height="400" src="' + src + '" width="400"/>' +
+                '</div>'
+            );
+        }).join('');
+    }
+
+    function initParallaxScrollGallery() {
+        if (document.querySelector('.adi-parallax-section')) return;
+
+        var mount = document.getElementById('adi-parallax-mount');
+        var portfolio = document.getElementById('portfolio');
+        var target = mount || portfolio;
+        if (!target) return;
+
+        var images = collectSiteImages();
+        if (!images.length) return;
+
+        var columns = splitImages(images);
+        var section = document.createElement('section');
+        section.className = 'adi-parallax-section';
+        section.id = 'visual-works';
+        section.innerHTML =
+            '<div class="adi-parallax-header">' +
+                '<span class="adi-parallax-kicker">Explore My —</span>' +
+                '<h2>Latest <span>Works.</span></h2>' +
+                '<p>Scroll inside the gallery. Side columns shift and rotate like Aceternity Parallax Scroll 2, using this site’s own case-study, product, and brand images.</p>' +
+            '</div>' +
+            '<div class="adi-parallax-scroll" data-lenis-prevent>' +
+                '<div class="adi-parallax-grid">' +
+                    '<div class="adi-parallax-col">' + renderColumn(columns[0], 'first') + '</div>' +
+                    '<div class="adi-parallax-col">' + renderColumn(columns[1], 'second') + '</div>' +
+                    '<div class="adi-parallax-col">' + renderColumn(columns[2], 'third') + '</div>' +
+                '</div>' +
+            '</div>';
+
+        if (mount) {
+            mount.appendChild(section);
+        } else {
+            target.insertAdjacentElement('afterend', section);
+        }
+
+        var scroller = section.querySelector('.adi-parallax-scroll');
+        var firstCards = section.querySelectorAll('[data-parallax-variant="first"]');
+        var thirdCards = section.querySelectorAll('[data-parallax-variant="third"]');
+        if (!scroller) return;
+
+        function updateParallax() {
+            var max = scroller.scrollHeight - scroller.clientHeight;
+            var progress = max > 0 ? scroller.scrollTop / max : 0;
+            var y = lerp(0, -200, progress);
+            var xFirst = lerp(0, -200, progress);
+            var rotFirst = lerp(0, -20, progress);
+            var xThird = lerp(0, 200, progress);
+            var rotThird = lerp(0, 20, progress);
+
+            firstCards.forEach(function (card) {
+                card.style.transform = 'translate3d(' + xFirst + 'px,' + y + 'px,0) rotate(' + rotFirst + 'deg)';
+            });
+            thirdCards.forEach(function (card) {
+                card.style.transform = 'translate3d(' + xThird + 'px,' + y + 'px,0) rotate(' + rotThird + 'deg)';
+            });
+        }
+
+        scroller.addEventListener('scroll', updateParallax, { passive: true });
+        updateParallax();
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initPreloader();
             initStickyHeader();
             initOffcanvasScrollFix();
             initNoLinkActivityFix();
+            initParallaxScrollGallery();
         });
     } else {
         initPreloader();
         initStickyHeader();
         initOffcanvasScrollFix();
         initNoLinkActivityFix();
+        initParallaxScrollGallery();
     }
 })();

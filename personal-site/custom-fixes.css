@@ -1384,5 +1384,305 @@ html.lenis, html.lenis body {
     }
 }
 
+/* ==========================================================================
+   Aceternity-style Parallax Scroll 2 — aligned to ADI / Seonex theme
+   ========================================================================== */
+.adi-parallax-section {
+    position: relative;
+    width: 100%;
+    padding: 72px 0 40px;
+    background:
+        radial-gradient(ellipse at top right, rgba(197, 255, 38, 0.08), transparent 42%),
+        linear-gradient(180deg, #080b1e 0%, #090c15 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.adi-parallax-header {
+    max-width: 1080px;
+    margin: 0 auto 28px;
+    padding: 0 28px;
+    text-align: center;
+}
+
+.adi-parallax-kicker {
+    display: inline-block;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c5ff26;
+    margin-bottom: 12px;
+}
+
+.adi-parallax-header h2 {
+    font-family: 'Figtree', sans-serif;
+    font-size: clamp(32px, 4.6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1.4px;
+    line-height: 1.12;
+    color: #ffffff;
+    margin: 0 0 12px;
+}
+
+.adi-parallax-header h2 span {
+    color: #c5ff26;
+}
+
+.adi-parallax-header p {
+    margin: 0 auto;
+    max-width: 640px;
+    color: #94A3B8;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.adi-parallax-scroll {
+    height: 40rem;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #c5ff26 rgba(255, 255, 255, 0.08);
+}
+
+.adi-parallax-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.adi-parallax-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.adi-parallax-scroll::-webkit-scrollbar-thumb {
+    background: #c5ff26;
+    border-radius: 99px;
+}
+
+.adi-parallax-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    max-width: 1080px;
+    margin: 0 auto;
+    gap: 28px;
+    padding: 96px 28px 160px;
+}
+
+.adi-parallax-col {
+    display: grid;
+    gap: 28px;
+}
+
+.adi-parallax-card {
+    margin: 0;
+    padding: 0;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.adi-parallax-card img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    object-position: left top;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    background: #111528;
+}
+
+@media (min-width: 768px) {
+    .adi-parallax-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .adi-parallax-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .adi-parallax-scroll {
+        height: 32rem;
+    }
+
+    .adi-parallax-card img {
+        height: 16rem;
+    }
+}
 
 
+
+
+
+/* ==========================================================================
+   PERFECT HORIZONTAL NAVBAR FIX FOR ALL PAGES (Main & Sticky Header)
+   Ensures Logo, Menu, Button, and Sidebar Trigger align on 1 single row
+   ========================================================================== */
+#pxl-header-elementor {
+    width: 100% !important;
+    position: relative !important;
+    z-index: 9999 !important;
+}
+
+#pxl-header-elementor .pxl-header-elementor-main {
+    width: 100% !important;
+}
+
+#pxl-header-elementor .pxl-header-content .row,
+#pxl-header-elementor .pxl-header-content .col-12,
+#pxl-header-elementor .elementor-92,
+#pxl-header-elementor .elementor-13822 {
+    width: 100% !important;
+}
+
+#pxl-header-elementor .elementor-element-5b06989,
+#pxl-header-elementor .elementor-element-043a7ff {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+}
+
+#pxl-header-elementor .elementor-element-5b06989 > .e-con-inner,
+#pxl-header-elementor .elementor-element-043a7ff > .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 90px !important;
+    margin: 0 auto !important;
+    gap: 16px !important;
+}
+
+/* 1. Logo Widget */
+#pxl-header-elementor .elementor-widget-pxl_logo {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_logo .pxl-logo {
+    display: flex !important;
+    align-items: center !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_logo .pxl-logo img {
+    height: 38px !important;
+    width: auto !important;
+    max-width: 220px !important;
+    display: block !important;
+}
+
+/* 2. Menu Navigation in Center */
+#pxl-header-elementor .elementor-widget-pxl_menu {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 16px !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu,
+#pxl-header-elementor .elementor-widget-pxl_menu .menu-menu-main-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 16px !important;
+    padding: 0 !important;
+    float: none !important;
+    white-space: nowrap !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a {
+    color: #FFFFFF !important;
+    font-family: "Figtree", sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 90px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: color 0.25s ease !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a:hover {
+    color: #DCF247 !important;
+}
+
+/* Dropdown Caret Icon */
+#pxl-header-elementor .elementor-widget-pxl_menu .caseicon-angle-arrow-down {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-left: 4px !important;
+    color: inherit !important;
+}
+
+/* 3. Button Widget */
+#pxl-header-elementor .elementor-widget-pxl_button {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+#pxl-header-elementor .elementor-widget-pxl_button .pxl-button .btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+}
+
+/* 4. 9-Dot Panel Button */
+#pxl-header-elementor .elementor-widget-pxl_icon_hidden_panel {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin-left: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+#pxl-header-elementor .pxl-hidden-panel-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Desktop Responsiveness Breakpoint adjustments */
+@media (max-width: 1366px) {
+    #pxl-header-elementor .elementor-element-5b06989,
+    #pxl-header-elementor .elementor-element-043a7ff {
+        padding: 0 20px !important;
+    }
+    #pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li {
+        margin: 0 10px !important;
+    }
+    #pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a {
+        font-size: 14px !important;
+    }
+}
