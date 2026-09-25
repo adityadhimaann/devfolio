@@ -185,13 +185,7 @@
         <nav class="inspira-resizable-nav" id="inspiraResizableNav">
           <!-- Scrollable Project Tabs -->
           <div class="inspira-nav-items-scroller" id="inspiraTabsScroller">
-            <button class="inspira-project-btn active" data-project="stockpulse" onclick="manualSwitchInspiraProject('stockpulse')">
-              <span class="tab-indicator"></span><span>StockPulse Pro</span>
-            </button>
-            <button class="inspira-project-btn" data-project="prompxlab" onclick="manualSwitchInspiraProject('prompxlab')">
-              <span class="tab-indicator"></span><span>PrompxLab AI</span>
-            </button>
-            <button class="inspira-project-btn" data-project="aihustle" onclick="manualSwitchInspiraProject('aihustle')">
+            <button class="inspira-project-btn active" data-project="aihustle" onclick="manualSwitchInspiraProject('aihustle')">
               <span class="tab-indicator"></span><span>AI Hustle Hub</span>
             </button>
             <button class="inspira-project-btn" data-project="payflow" onclick="manualSwitchInspiraProject('payflow')">
@@ -202,6 +196,12 @@
             </button>
             <button class="inspira-project-btn" data-project="marketbeat" onclick="manualSwitchInspiraProject('marketbeat')">
               <span class="tab-indicator"></span><span>MarketBeat AI</span>
+            </button>
+            <button class="inspira-project-btn" data-project="stockpulse" onclick="manualSwitchInspiraProject('stockpulse')">
+              <span class="tab-indicator"></span><span>StockPulse Pro</span>
+            </button>
+            <button class="inspira-project-btn" data-project="prompxlab" onclick="manualSwitchInspiraProject('prompxlab')">
+              <span class="tab-indicator"></span><span>PrompxLab AI</span>
             </button>
           </div>
         </nav>
@@ -275,7 +275,7 @@
                   fontWeight="500"
                   letterSpacing="0.02em"
                 >
-                  stockpulse.adityadhiman.dev
+                  aihustlehub.com
                 </text>
               </g>
               <!-- Navigation Icons -->
@@ -293,8 +293,8 @@
                 x="1"
                 y="52"
                 preserveAspectRatio="xMidYMid slice"
-                href="./theme-assets/mockups/stockpulse-desktop.webp"
-                style="clip-path: url(#inspira-safari-roundedBottom); transition: opacity 0.35s ease;"
+                href="./theme-assets/mockups/aihustle-desktop.webp"
+                style="clip-path: url(#inspira-safari-roundedBottom); transition: opacity 0.35s ease; opacity: 0;"
               />
             </g>
             <defs>
@@ -310,8 +310,8 @@
             </defs>
           </svg>
           <!-- HTML5 Video Overlay for Video Projects (AI Hustle Hub) -->
-          <div id="safariVideoWrap" style="position: absolute; top: 6.9057%; left: 0.0831%; width: 99.7506%; height: 92.9615%; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; opacity: 0; display: none; pointer-events: none; z-index: 2; transition: opacity 0.35s ease;">
-            <video id="safariMockupVideo" loop muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          <div id="safariVideoWrap" style="position: absolute; top: 6.9057%; left: 0.0831%; width: 99.7506%; height: 92.9615%; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; opacity: 1; display: block; pointer-events: none; z-index: 2; transition: opacity 0.35s ease;">
+            <video id="safariMockupVideo" autoplay muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
               <source src="./theme-assets/mockups/aihustle-desktop.mp4" type="video/mp4">
             </video>
           </div>
@@ -362,8 +362,8 @@
               width="389.5"
               height="843.5"
               preserveAspectRatio="xMidYMid slice"
-              style="clip-path: url(#inspira-iphone-corners); transition: opacity 0.35s ease;"
-              href="./theme-assets/mockups/stockpulse-mobile.webp"
+              style="clip-path: url(#inspira-iphone-corners); transition: opacity 0.35s ease; opacity: 0;"
+              href="./theme-assets/mockups/aihustle-mobile.webp"
             />
 
             <!-- Dynamic Island Pill -->
@@ -388,12 +388,12 @@
             </defs>
           </svg>
           <!-- HTML5 Video Overlay for Video Projects (AI Hustle Hub) -->
-          <div id="iphoneVideoWrap" style="position: absolute; top: 2.1825%; left: 4.9076%; width: 89.9538%; height: 95.6349%; border-radius: 40px; overflow: hidden; opacity: 0; display: none; pointer-events: none; z-index: 6; transition: opacity 0.35s ease;">
+          <div id="iphoneVideoWrap" style="position: absolute; top: 2.1825%; left: 4.9076%; width: 89.9538%; height: 95.6349%; border-radius: 40px; overflow: hidden; opacity: 1; display: block; pointer-events: none; z-index: 6; transition: opacity 0.35s ease;">
             <!-- Dynamic Island Overlay for Phone Video -->
             <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 78px; height: 22px; background: #000000; border-radius: 9999px; z-index: 10; pointer-events: none; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;">
               <span style="width: 7px; height: 7px; border-radius: 50%; background: #080812; border: 1px solid #14192b; display: block;"></span>
             </div>
-            <video id="iphoneMockupVideo" loop muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+            <video id="iphoneMockupVideo" autoplay muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
               <source src="./theme-assets/mockups/aihustle-mobile.mp4" type="video/mp4">
             </video>
           </div>
@@ -406,24 +406,24 @@
         <div style="flex: 1; min-width: 260px;">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap;">
             <h3 id="inspira-project-title" style="font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800; color: #000000; margin: 0; letter-spacing: -0.02em;">
-              StockPulse Pro
+              AI Hustle Hub
             </h3>
             <span style="font-family: 'Manrope', sans-serif; color: #000000; font-size: 11.5px; font-weight: 800; background: #DCF247; border: 1.5px solid #000000; padding: 3px 12px; border-radius: 9999px; letter-spacing: 0.05em; text-transform: uppercase;">Active Production</span>
           </div>
           <p id="inspira-project-desc" style="font-family: 'Figtree', sans-serif; color: #000000; font-size: 15px; margin: 0; max-width: 650px; line-height: 1.6; font-weight: 600;">
-            Real-time stock trading &amp; portfolio analytics platform with algorithmic signals, live market depth, and watchlist execution.
+            Automated digital product &amp; AI workflow hub empowering creators with autonomous growth agents and revenue pipelines.
           </p>
           <div id="inspira-project-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
-            <span class="inspira-tech-tag">Next.js 14</span>
-            <span class="inspira-tech-tag">TypeScript</span>
-            <span class="inspira-tech-tag">WebSockets</span>
-            <span class="inspira-tech-tag">FinTech</span>
-            <span class="inspira-tech-tag">TailwindCSS</span>
+            <span class="inspira-tech-tag">AI SaaS</span>
+            <span class="inspira-tech-tag">Python Agents</span>
+            <span class="inspira-tech-tag">Next.js</span>
+            <span class="inspira-tech-tag">Stripe Billing</span>
+            <span class="inspira-tech-tag">PostgreSQL</span>
           </div>
         </div>
 
         <div style="display: flex; align-items: center; gap: 12px;">
-          <a id="inspira-project-link" href="latest-cases.html" class="btn pxl-icon-active btn-two-icon pxl-icon--left" style="background: #000000; color: #DCF247; font-weight: 800; border-radius: 9999px; padding: 13px 26px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); transition: all 0.25s ease;">
+          <a id="inspira-project-link" href="saas-product-development.html" class="btn pxl-icon-active btn-two-icon pxl-icon--left" style="background: #000000; color: #DCF247; font-weight: 800; border-radius: 9999px; padding: 13px 26px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 14px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); transition: all 0.25s ease;">
             <span>Explore Case Study</span>
             <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.83337 14.1666L14.1667 5.83331" stroke="#DCF247" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M5.83337 5.83331H14.1667V14.1666" stroke="#DCF247" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
           </a>
@@ -903,10 +903,11 @@
     }
   };
 
-  const projectKeys = ['stockpulse', 'prompxlab', 'aihustle', 'payflow', 'syncride', 'marketbeat'];
+  const projectKeys = ['aihustle', 'payflow', 'syncride', 'marketbeat', 'stockpulse', 'prompxlab'];
   let currentProjectIndex = 0;
   let autoChangeTimer = null;
-  const AUTO_INTERVAL_MS = 2200; // Faster snappier transitions (2.2s)
+  let videoEndedHandler = null;
+  const AUTO_INTERVAL_MS = 2200; // Faster snappier transitions (2.2s for static projects)
 
   function switchInspiraProject(key, scrollIntoView = false) {
     const proj = inspiraProjects[key];
@@ -991,16 +992,55 @@
     }
   }
 
+  function advanceToNextProject() {
+    currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
+    switchInspiraProject(projectKeys[currentProjectIndex], false); // NEVER scroll window during background auto-cycle
+    startAutoCycle();
+  }
+
   function startAutoCycle() {
     stopAutoCycle();
     const currentKey = projectKeys[currentProjectIndex];
-    const isVideo = inspiraProjects[currentKey]?.hasVideo;
-    const interval = isVideo ? 10000 : AUTO_INTERVAL_MS;
-    autoChangeTimer = setTimeout(() => {
-      currentProjectIndex = (currentProjectIndex + 1) % projectKeys.length;
-      switchInspiraProject(projectKeys[currentProjectIndex], false); // NEVER scroll window during background auto-cycle
-      startAutoCycle();
-    }, interval);
+    const proj = inspiraProjects[currentKey];
+
+    if (proj && proj.hasVideo) {
+      const sVideo = document.getElementById('safariMockupVideo');
+      const mVideo = document.getElementById('iphoneMockupVideo');
+
+      // Ensure videos start playing
+      if (sVideo) {
+        if (sVideo.ended) sVideo.currentTime = 0;
+        if (sVideo.paused) sVideo.play().catch(() => {});
+
+        // Hold auto-navigation until the video completes
+        videoEndedHandler = function() {
+          stopAutoCycle();
+          // Hold briefly for 700ms on the completed frame before smoothly transitioning
+          autoChangeTimer = setTimeout(advanceToNextProject, 700);
+        };
+        sVideo.addEventListener('ended', videoEndedHandler, { once: true });
+      }
+
+      if (mVideo) {
+        if (mVideo.ended) mVideo.currentTime = 0;
+        if (mVideo.paused) mVideo.play().catch(() => {});
+      }
+
+      // Safety fallback timer in case ended event is delayed or restricted
+      const fallbackMs = (sVideo && sVideo.duration && !isNaN(sVideo.duration) && sVideo.duration > 0)
+        ? Math.ceil(sVideo.duration * 1000) + 1200
+        : 19500;
+
+      autoChangeTimer = setTimeout(() => {
+        advanceToNextProject();
+      }, fallbackMs);
+
+    } else {
+      // Standard static project cycle
+      autoChangeTimer = setTimeout(() => {
+        advanceToNextProject();
+      }, AUTO_INTERVAL_MS);
+    }
   }
 
   function stopAutoCycle() {
@@ -1008,12 +1048,17 @@
       clearTimeout(autoChangeTimer);
       autoChangeTimer = null;
     }
+    const sVideo = document.getElementById('safariMockupVideo');
+    if (sVideo && videoEndedHandler) {
+      sVideo.removeEventListener('ended', videoEndedHandler);
+      videoEndedHandler = null;
+    }
   }
 
   // Exposed for manual clicks
   window.manualSwitchInspiraProject = function(key) {
     switchInspiraProject(key, true);
-    startAutoCycle(); // Reset timer so it gives user full duration
+    startAutoCycle(); // Reset timer / video hold for newly selected project
   };
 
   // Pause on mouseenter, resume on mouseleave
