@@ -704,18 +704,13 @@ html.lenis, html.lenis body {
    NAVBAR DROPDOWN BEHAVIOR & STYLING (DESKTOP & MOBILE)
    ========================================================================== */
 
-/* Invisible hover bridge between navbar item and dropdown */
+/* Invisible hover bridge removed from li (eliminates phantom hit area) */
 .pxl-menu-primary > li.menu-item-has-children {
-    position: relative;
+    position: relative !important;
 }
 .pxl-menu-primary > li.menu-item-has-children::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    right: 0;
-    height: 25px;
-    z-index: 9998;
+    display: none !important;
+    content: none !important;
 }
 
 /* Chevron arrow rotation */
@@ -727,22 +722,24 @@ html.lenis, html.lenis body {
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .pxl-menu-primary > li.menu-item-has-children:hover > a i.caseicon-angle-arrow-down,
+.pxl-menu-primary > li.menu-item-has-children.is-open > a i.caseicon-angle-arrow-down,
 .pxl-menu-primary > li.menu-item-has-children.active > a i.caseicon-angle-arrow-down {
     transform: rotate(180deg) !important;
 }
-.pxl-menu-primary > li:hover > a .dropdown-icon-svg {
+.pxl-menu-primary > li:hover > a .dropdown-icon-svg,
+.pxl-menu-primary > li.is-open > a .dropdown-icon-svg {
     stroke: #DCF247 !important;
 }
 
-/* Desktop Header Dropdowns (Transparent & Sticky) */
+/* Desktop Header Dropdowns (Transparent & Sticky) - Strictly Exact & Stable */
 .pxl-header-elementor-main .pxl-menu-primary .sub-menu,
 .pxl-header-elementor-sticky .pxl-menu-primary .sub-menu {
     position: absolute !important;
-    top: 100% !important;
+    top: calc(100% + 12px) !important;
     left: 50% !important;
-    transform: translateX(-50%) translateY(10px) !important;
-    min-width: 270px !important;
-    background: rgba(13, 17, 34, 0.97) !important;
+    transform: translateX(-50%) translateY(8px) !important;
+    min-width: 260px !important;
+    background: rgba(13, 17, 34, 0.98) !important;
     backdrop-filter: blur(24px) !important;
     -webkit-backdrop-filter: blur(24px) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -755,8 +752,9 @@ html.lenis, html.lenis body {
     display: block !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s !important;
     pointer-events: none !important;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease !important;
+    transition-delay: 0.15s !important;
 }
 
 /* Caret indicator */
@@ -769,14 +767,45 @@ html.lenis, html.lenis body {
     transform: translateX(-50%) rotate(45deg) !important;
     width: 12px !important;
     height: 12px !important;
-    background: rgba(13, 17, 34, 0.97) !important;
+    background: rgba(13, 17, 34, 0.98) !important;
     border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
-/* Hover reveal */
-.pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children:hover > .sub-menu,
-.pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children:hover > .sub-menu,
+/* Safe travel bridge attached directly to sub-menu ONLY when open */
+.pxl-header-elementor-main .pxl-menu-primary .sub-menu::after,
+.pxl-header-elementor-sticky .pxl-menu-primary .sub-menu::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -14px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 14px !important;
+    background: transparent !important;
+    pointer-events: auto !important;
+}
+
+/* Exact Reveal: requires deliberate hover on item or hover-intent class */
+.pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children.is-open > .sub-menu,
+.pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children.is-open > .sub-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+}
+
+@media (hover: hover) {
+    .pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children:hover > .sub-menu,
+    .pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children:hover > .sub-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0.13s !important; /* Prevents opening on incidental cursor pass */
+    }
+}
+
 .pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children:focus-within > .sub-menu,
 .pxl-header-elementor-sticky .pxl-menu-primary li.menu-item-has-children:focus-within > .sub-menu,
 .pxl-header-elementor-main .pxl-menu-primary li.menu-item-has-children.force-open > .sub-menu,
@@ -785,6 +814,7 @@ html.lenis, html.lenis body {
     visibility: visible !important;
     transform: translateX(-50%) translateY(0) !important;
     pointer-events: auto !important;
+    transition-delay: 0s !important;
 }
 
 /* Submenu items */
@@ -1781,26 +1811,32 @@ html.lenis, html.lenis body {
 #pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li {
     display: inline-flex !important;
     align-items: center !important;
-    margin: 0 16px !important;
+    position: relative !important;
+    margin: 0 6px !important;
     padding: 0 !important;
     float: none !important;
     white-space: nowrap !important;
+    height: auto !important;
 }
 #pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a {
     color: #FFFFFF !important;
     font-family: "Figtree", sans-serif !important;
     font-size: 15px !important;
     font-weight: 500 !important;
-    line-height: 90px !important;
+    line-height: 1.2 !important;
+    padding: 10px 14px !important;
+    border-radius: 9999px !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
     text-decoration: none !important;
     white-space: nowrap !important;
-    transition: color 0.25s ease !important;
+    transition: color 0.2s ease, background-color 0.2s ease !important;
 }
-#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a:hover {
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a:hover,
+#pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li.is-open > a {
     color: #DCF247 !important;
+    background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 /* Dropdown Caret Icon */
@@ -1846,7 +1882,7 @@ html.lenis, html.lenis body {
         padding: 0 20px !important;
     }
     #pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li {
-        margin: 0 10px !important;
+        margin: 0 4px !important;
     }
     #pxl-header-elementor .elementor-widget-pxl_menu .pxl-nav-menu .pxl-menu-primary > li > a {
         font-size: 14px !important;

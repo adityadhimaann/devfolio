@@ -81,6 +81,68 @@
         updateHeader();
     }
 
+    function initDesktopMenuHoverIntent() {
+        var menuItems = document.querySelectorAll(
+            '#pxl-header-elementor .pxl-menu-primary > li.menu-item-has-children'
+        );
+        if (!menuItems.length) return;
+
+        var openDelay = 140; // 140ms intentional hover required before opening
+        var closeGracePeriod = 180; // 180ms grace period to smoothly move into submenu
+
+        function closeAll(exceptItem) {
+            menuItems.forEach(function (li) {
+                if (li !== exceptItem) {
+                    clearTimeout(li._enterTimeout);
+                    clearTimeout(li._leaveTimeout);
+                    li.classList.remove('is-open');
+                }
+            });
+        }
+
+        menuItems.forEach(function (li) {
+            li.addEventListener('mouseenter', function () {
+                clearTimeout(li._leaveTimeout);
+
+                // If another menu is already open, switch immediately without delay
+                var isAnySiblingOpen = Array.prototype.some.call(menuItems, function (other) {
+                    return other !== li && other.classList.contains('is-open');
+                });
+
+                if (isAnySiblingOpen) {
+                    closeAll(li);
+                    li.classList.add('is-open');
+                } else {
+                    li._enterTimeout = setTimeout(function () {
+                        closeAll(li);
+                        li.classList.add('is-open');
+                    }, openDelay);
+                }
+            });
+
+            li.addEventListener('mouseleave', function () {
+                clearTimeout(li._enterTimeout);
+                li._leaveTimeout = setTimeout(function () {
+                    li.classList.remove('is-open');
+                }, closeGracePeriod);
+            });
+        });
+
+        // Close on clicking outside of header menu
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('#pxl-header-elementor .pxl-menu-primary')) {
+                closeAll();
+            }
+        });
+
+        // Close when pressing Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeAll();
+            }
+        });
+    }
+
     function initOffcanvasScrollFix() {
         var popup = document.getElementById('pxl-hidden-panel-popup');
         if (!popup) return;
@@ -305,6 +367,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             initPreloader();
             initStickyHeader();
+            initDesktopMenuHoverIntent();
             initOffcanvasScrollFix();
             initNoLinkActivityFix();
             initParallaxScrollGallery();
@@ -312,6 +375,7 @@
     } else {
         initPreloader();
         initStickyHeader();
+        initDesktopMenuHoverIntent();
         initOffcanvasScrollFix();
         initNoLinkActivityFix();
         initParallaxScrollGallery();
