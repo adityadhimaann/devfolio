@@ -1888,3 +1888,157 @@ html.lenis, html.lenis body {
         font-size: 14px !important;
     }
 }
+
+/* ==========================================================================
+   MACOS INTERACTIVE MAGNIFICATION DOCK COMPONENT (Inspira UI / Magic UI)
+   ========================================================================== */
+.adi-hero-dock-wrap {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 24px; /* mb-6 */
+    width: auto;
+    position: relative;
+    z-index: 20;
+}
+.adi-hero-dock-wrap.mb-6 {
+    margin-bottom: 24px !important;
+}
+
+.adi-dock {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(13, 17, 34, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(220, 242, 71, 0.05);
+    min-height: 64px;
+    position: relative;
+    user-select: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.adi-dock:hover {
+    border-color: rgba(220, 242, 71, 0.35);
+    box-shadow: 0 20px 42px -6px rgba(0, 0, 0, 0.7), 0 0 28px rgba(220, 242, 71, 0.12);
+}
+
+.adi-dock-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+    will-change: width, height;
+}
+
+/* While cursor is actively tracking across dock, zero-latency size response */
+.adi-dock.is-active .adi-dock-icon {
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.adi-dock-icon:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(220, 242, 71, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.adi-dock-icon-inner {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.adi-dock-icon-inner .size-full,
+.adi-dock-icon-inner svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.adi-dock-separator {
+    width: 1px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 2px;
+    flex-shrink: 0;
+    border-radius: 1px;
+}
+
+/* Tooltip Badge */
+.adi-dock-tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(13, 17, 34, 0.95);
+    color: #FFFFFF;
+    font-family: "Figtree", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    z-index: 100;
+}
+
+.adi-dock-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 4px 0 4px;
+    border-style: solid;
+    border-color: rgba(13, 17, 34, 0.95) transparent transparent transparent;
+}
+
+.adi-dock-icon:hover .adi-dock-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 767px) {
+    .adi-hero-dock-wrap {
+        margin-top: 14px;
+        margin-bottom: 20px;
+        justify-content: flex-start;
+    }
+    .adi-dock {
+        padding: 6px 12px;
+        min-height: 56px;
+        gap: 8px;
+    }
+}

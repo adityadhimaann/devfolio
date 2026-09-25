@@ -363,6 +363,61 @@
         updateParallax();
     }
 
+    function initInteractiveDock() {
+        var docks = document.querySelectorAll('.adi-dock');
+        if (!docks.length) return;
+
+        docks.forEach(function (dock) {
+            var icons = dock.querySelectorAll('.adi-dock-icon');
+            if (!icons.length) return;
+
+            var magnification = parseFloat(dock.getAttribute('data-magnification')) || 60;
+            var distance = parseFloat(dock.getAttribute('data-distance')) || 140;
+            var baseSize = 40; // Default resting size in px
+
+            var isHovered = false;
+
+            function updateIcons(mouseX) {
+                icons.forEach(function (icon) {
+                    var rect = icon.getBoundingClientRect();
+                    var iconCenter = rect.left + rect.width / 2;
+                    var d = Math.abs(mouseX - iconCenter);
+
+                    if (d < distance) {
+                        var progress = Math.cos((d / distance) * (Math.PI / 2));
+                        var currentSize = baseSize + (magnification - baseSize) * Math.pow(progress, 1.25);
+                        icon.style.width = currentSize + 'px';
+                        icon.style.height = currentSize + 'px';
+                    } else {
+                        icon.style.width = baseSize + 'px';
+                        icon.style.height = baseSize + 'px';
+                    }
+                });
+            }
+
+            function resetIcons() {
+                icons.forEach(function (icon) {
+                    icon.style.width = baseSize + 'px';
+                    icon.style.height = baseSize + 'px';
+                });
+            }
+
+            dock.addEventListener('mousemove', function (e) {
+                if (!isHovered) {
+                    isHovered = true;
+                    dock.classList.add('is-active');
+                }
+                updateIcons(e.clientX);
+            });
+
+            dock.addEventListener('mouseleave', function () {
+                isHovered = false;
+                dock.classList.remove('is-active');
+                resetIcons();
+            });
+        });
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initPreloader();
@@ -371,6 +426,7 @@
             initOffcanvasScrollFix();
             initNoLinkActivityFix();
             initParallaxScrollGallery();
+            initInteractiveDock();
         });
     } else {
         initPreloader();
@@ -379,5 +435,6 @@
         initOffcanvasScrollFix();
         initNoLinkActivityFix();
         initParallaxScrollGallery();
+        initInteractiveDock();
     }
 })();
